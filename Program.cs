@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MyChatDB.core.iron_python;
+using System;
 using System.Windows.Forms;
 
 namespace MyChatDB
@@ -16,7 +14,8 @@ namespace MyChatDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Transcript());
+            var engine = Engine.Instance;
+            Application.Run(new Transcript(engine));
         }
     }
 }
