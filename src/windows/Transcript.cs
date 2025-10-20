@@ -7,10 +7,10 @@ namespace MyChatDB
     public partial class Transcript : Form
     {
         public Engine engine;
-        public Transcript(Engine engine)
+        public Transcript()
         {
             InitializeComponent();
-            this.engine = engine;
+            this.engine = Engine.GetInstance(this);
         }
 
         private void Transcript_Load(object sender, EventArgs e)
@@ -30,8 +30,7 @@ namespace MyChatDB
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var s = string.Format("engine.Instance {0}", engine == null);
-            PrintLn(s);
+            _ = engine.ExecuteAsync("print(5+6)");
         }
 
         public void AppendText(string text)

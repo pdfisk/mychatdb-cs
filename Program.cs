@@ -14,8 +14,7 @@ namespace MyChatDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var engine = Engine.Instance;
-            Application.Run(new Transcript(engine));
+            Application.Run(new Transcript());
         }
     }
 }
