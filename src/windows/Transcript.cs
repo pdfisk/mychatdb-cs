@@ -34,11 +34,9 @@ namespace MyChatDB
         {
             PrintLn("run_btn_clicked");
             var code = "print(5+6)";
-            Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync("print(5+6)");
+            engine.RunScript(code, this);
+            Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync(code);
             await task;
-            PrintLn($"Result: {task.Result.result}");
-            PrintLn($"Stdout: {task.Result.stdout}");
-            PrintLn($"Stderr: {task.Result.stderr}");
         }
 
         public void AppendText(string text)
