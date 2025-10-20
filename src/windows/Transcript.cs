@@ -1,5 +1,6 @@
 ﻿using MyChatDB.core.iron_python;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyChatDB
@@ -23,14 +24,19 @@ namespace MyChatDB
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void clear_btn_clicked(object sender, EventArgs e)
         {
             ClearText();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void run_btn_clicked(object sender, EventArgs e)
         {
-            _ = engine.ExecuteAsync("print(5+6)");
+            PrintLn("run_btn_clicked");
+            Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync("print(5+6)");
+            await task;
+            PrintLn($"Result: {task.Result.result}");
+            PrintLn($"Stdout: {task.Result.stdout}");
+            PrintLn($"Stderr: {task.Result.stderr}");
         }
 
         public void AppendText(string text)

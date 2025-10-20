@@ -26,6 +26,8 @@ namespace MyChatDB.core.iron_python
             {
                 Instance = new Engine();
                 Instance.transcript = transcript;
+                Instance.transcript.engine = Instance;
+                Instance.LoadScript("math_ops.py");
             }
             return Instance;
         }
@@ -38,18 +40,22 @@ namespace MyChatDB.core.iron_python
             _stderrStream = new MemoryStream();
             _stdoutWriter = new StreamWriter(_stdoutStream) { AutoFlush = true };
             _stderrWriter = new StreamWriter(_stderrStream) { AutoFlush = true };
-
             _engine.Runtime.IO.SetOutput(_stdoutStream, _stdoutWriter);
             _engine.Runtime.IO.SetErrorOutput(_stderrStream, _stderrWriter);
-
-
         }
+
         /// <summary>
         /// Loads a Python script into the current IronPython scope.
         /// </summary>
         public void LoadScript(string filePath)
         {
-            _engine.ExecuteFile(filePath, _scope);
+            Console.WriteLine($"Loading Python script: {filePath}");
+            var scriptsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scripts");
+            var fullPath = Path.Combine(scriptsPath, filePath);
+            Console.WriteLine($"fullPath: {fullPath}");
+            Console.WriteLine($"File exists: {File.Exists(fullPath)}");
+            if (File.Exists(fullPath))
+                _engine.ExecuteFile(fullPath, _scope);
         }
 
         /// <summary>
