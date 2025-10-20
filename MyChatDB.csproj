@@ -84,6 +84,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\iron_python\Engine.cs" />
+    <Compile Include="src\iron_python\util\IResultHandler.cs" />
+    <Compile Include="src\iron_python\util\ResultObject.cs" />
     <Compile Include="src\windows\Transcript.cs">
       <SubType>Form</SubType>
     </Compile>

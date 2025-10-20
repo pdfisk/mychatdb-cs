@@ -1,5 +1,4 @@
-﻿using MyChatDB.core.iron_python;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace MyChatDB

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
+using MyChatDB.src.iron_python.util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 namespace MyChatDB.core.iron_python
@@ -100,6 +101,17 @@ namespace MyChatDB.core.iron_python
 
                 return (result, GetStdOut(), GetStdErr());
             }, cancellationToken);
+        }
+
+        public async void RunScript(string code, IResultHandler resultHandler=null)
+        {
+            Task<(object result, string stdout, string stderr)> task = ExecuteAsync(code);
+            await task;
+            ResultObject resultObject = new ResultObject(task.Result.result, task.Result.stdout, task.Result.stderr);
+            if (resultHandler != null)
+            {
+                resultHandler.HandleResult(resultObject);
+            }
         }
 
         /// <summary>

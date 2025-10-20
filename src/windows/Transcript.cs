@@ -1,11 +1,12 @@
 ﻿using MyChatDB.core.iron_python;
+using MyChatDB.src.iron_python.util;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyChatDB
 {
-    public partial class Transcript : Form
+    public partial class Transcript : Form, IResultHandler
     {
         public Engine engine;
         public Transcript()
@@ -32,6 +33,7 @@ namespace MyChatDB
         private async void run_btn_clicked(object sender, EventArgs e)
         {
             PrintLn("run_btn_clicked");
+            var code = "print(5+6)";
             Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync("print(5+6)");
             await task;
             PrintLn($"Result: {task.Result.result}");
@@ -72,6 +74,11 @@ namespace MyChatDB
         {
             ClearText();
             AppendText(text);
+        }
+
+        public void HandleResult(ResultObject resultObject)
+        {
+            PrintLn(string.Format("HandleResult called: {0}", resultObject._stdout));
         }
     }
 
