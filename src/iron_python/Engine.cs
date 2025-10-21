@@ -13,7 +13,7 @@ namespace MyChatDB.core.iron_python
     public class Engine
     {
         static Engine Instance;
-        TranscriptWindow transcript;
+        IResultHandler transcript;
         private readonly ScriptEngine _engine;
         private readonly ScriptScope _scope;
         private readonly MemoryStream _stdoutStream;
@@ -21,13 +21,12 @@ namespace MyChatDB.core.iron_python
         private readonly StreamWriter _stdoutWriter;
         private readonly StreamWriter _stderrWriter;
 
-        public static Engine GetInstance(TranscriptWindow transcript = null)
+        public static Engine GetInstance(IResultHandler transcript = null)
         {
             if (transcript != null)
             {
                 Instance = new Engine();
                 Instance.transcript = transcript;
-                Instance.transcript.engine = Instance;
                 Instance.LoadScript("math_ops.py");
             }
             return Instance;
