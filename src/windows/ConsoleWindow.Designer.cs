@@ -1,0 +1,101 @@
+﻿namespace MyChatDB
+{
+    partial class ConsoleWindow
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
+            this.button1 = new System.Windows.Forms.Button();
+            this.transcriptTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // transcriptToolStrip
+            // 
+            this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
+            this.transcriptToolStrip.Name = "transcriptToolStrip";
+            this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
+            this.transcriptToolStrip.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(145, 427);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.clear_btn_clicked);
+            // 
+            // transcriptTextBox
+            // 
+            this.transcriptTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transcriptTextBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transcriptTextBox.Location = new System.Drawing.Point(0, 0);
+            this.transcriptTextBox.Multiline = true;
+            this.transcriptTextBox.Name = "transcriptTextBox";
+            this.transcriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.transcriptTextBox.Size = new System.Drawing.Size(477, 425);
+            this.transcriptTextBox.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(30, 427);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Run";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.run_btn_clicked);
+            // 
+            // Console
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(477, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.transcriptTextBox);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.transcriptToolStrip);
+            this.Name = "Console";
+            this.Text = "Console";
+            this.Load += new System.EventHandler(this.Transcript_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ToolStrip transcriptToolStrip;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox transcriptTextBox;
+        private System.Windows.Forms.Button button2;
+    }
+}
+

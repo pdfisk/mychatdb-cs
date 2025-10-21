@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace MyChatDB
 {
-    public partial class Transcript : Form, IResultHandler
+    public partial class ConsoleWindow : Form, IResultHandler
     {
         public Engine engine;
-        public Transcript()
+        public ConsoleWindow()
         {
             InitializeComponent();
             this.engine = Engine.GetInstance(this);

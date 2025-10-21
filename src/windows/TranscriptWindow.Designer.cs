@@ -1,6 +1,6 @@
 ﻿namespace MyChatDB
 {
-    partial class Transcript
+    partial class TranscriptWindow
     {
         /// <summary>
         /// Required designer variable.

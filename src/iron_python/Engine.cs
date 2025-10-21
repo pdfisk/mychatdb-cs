@@ -13,7 +13,7 @@ namespace MyChatDB.core.iron_python
     public class Engine
     {
         static Engine Instance;
-        Transcript transcript;
+        TranscriptWindow transcript;
         private readonly ScriptEngine _engine;
         private readonly ScriptScope _scope;
         private readonly MemoryStream _stdoutStream;
@@ -21,7 +21,7 @@ namespace MyChatDB.core.iron_python
         private readonly StreamWriter _stdoutWriter;
         private readonly StreamWriter _stderrWriter;
 
-        public static Engine GetInstance(Transcript transcript = null)
+        public static Engine GetInstance(TranscriptWindow transcript = null)
         {
             if (transcript != null)
             {

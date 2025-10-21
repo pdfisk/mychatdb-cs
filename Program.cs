@@ -13,7 +13,8 @@ namespace MyChatDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Transcript());
+            Application.Run(new TranscriptWindow());
+            new ConsoleWindow().Show();
         }
     }
 }
