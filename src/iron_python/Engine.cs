@@ -10,10 +10,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 namespace MyChatDB.core.iron_python
 {
-    public class Engine
+    public class Engine 
     {
         static Engine Instance;
-        IResultHandler transcript;
+        IResultHandler _resultHandler;
         private readonly ScriptEngine _engine;
         private readonly ScriptScope _scope;
         private readonly MemoryStream _stdoutStream;
@@ -26,7 +26,7 @@ namespace MyChatDB.core.iron_python
             if (transcript != null)
             {
                 Instance = new Engine();
-                Instance.transcript = transcript;
+                Instance._resultHandler = transcript;
                 Instance.LoadScript("math_ops.py");
             }
             return Instance;
