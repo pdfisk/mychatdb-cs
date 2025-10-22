@@ -32,7 +32,7 @@ namespace MyChatDB
 
         private async void run_btn_clicked(object sender, EventArgs e)
         {
-            PrintLn("run_btn_clicked");
+            PrintLn("console_btn_clicked");
             var code = "print(5+6)";
             engine.RunScript(code, this);
             Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync(code);
@@ -76,7 +76,7 @@ namespace MyChatDB
 
         public void HandleResult(ResultObject resultObject)
         {
-            PrintLn(string.Format("HandleResult called: {0}", resultObject._stdout));
+            PrintLn(string.Format("Result: [{0}]", resultObject._stdout));
         }
     }
 

@@ -1,7 +1,6 @@
 ﻿using MyChatDB.core.iron_python;
 using MyChatDB.src.iron_python.util;
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyChatDB
@@ -30,15 +29,10 @@ namespace MyChatDB
             ClearText();
         }
 
-        private async void run_btn_clicked(object sender, EventArgs e)
+        private async void console_btn_clicked(object sender, EventArgs e)
         {
             PrintLn("Open Console Window");
             new ConsoleWindow().Show();
-            //PrintLn("run_btn_clicked");
-            //var code = "print(5+6)";
-            //engine.RunScript(code, this);
-            //Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync(code);
-            //await task;
         }
 
         public void AppendText(string text)
@@ -79,6 +73,11 @@ namespace MyChatDB
         public void HandleResult(ResultObject resultObject)
         {
             PrintLn(string.Format("HandleResult called: {0}", resultObject._stdout));
+        }
+
+        private void transcriptTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

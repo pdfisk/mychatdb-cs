@@ -44,7 +44,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 427);
+            this.button1.Location = new System.Drawing.Point(124, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -62,18 +62,19 @@
             this.transcriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.transcriptTextBox.Size = new System.Drawing.Size(477, 425);
             this.transcriptTextBox.TabIndex = 2;
+            this.transcriptTextBox.TextChanged += new System.EventHandler(this.transcriptTextBox_TextChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(119, 427);
+            this.button2.Location = new System.Drawing.Point(26, 427);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Run";
+            this.button2.Text = "Console";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.run_btn_clicked);
+            this.button2.Click += new System.EventHandler(this.console_btn_clicked);
             // 
-            // Transcript
+            // TranscriptWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,7 +83,7 @@
             this.Controls.Add(this.transcriptTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.transcriptToolStrip);
-            this.Name = "Transcript";
+            this.Name = "TranscriptWindow";
             this.Text = "Transcript";
             this.Load += new System.EventHandler(this.Transcript_Load);
             this.ResumeLayout(false);
