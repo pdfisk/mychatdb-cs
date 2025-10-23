@@ -125,6 +125,7 @@ namespace MyChatDB.core.iron_python
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 ResetStreams();
+                Console.WriteLine("RUN");
 
                 if (!string.IsNullOrEmpty(jsonLocals))
                 {
@@ -135,8 +136,9 @@ namespace MyChatDB.core.iron_python
 
                 var result = _engine.Execute(code, _scope);
                 cancellationToken.ThrowIfCancellationRequested();
-
-                return (result, GetStdOut(), GetStdErr());
+                var stdout = GetStdOut().TrimEnd();
+                var stderr = GetStdErr().TrimEnd();
+                return (result, stdout, stderr);
             }, cancellationToken);
         }
 

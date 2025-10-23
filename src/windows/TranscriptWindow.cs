@@ -8,7 +8,24 @@ namespace MyChatDB
     public partial class TranscriptWindow : Form, IResultHandler
     {
         public Engine engine;
-        public TranscriptWindow()
+        static TranscriptWindow instance;
+
+        public static TranscriptWindow GetInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new TranscriptWindow();
+            }
+            return instance;
+        }
+
+        public static void PrintLn(string text)
+        {
+            var window = GetInstance();
+            window.PrintLn_(text);
+        }
+
+        TranscriptWindow()
         {
             InitializeComponent();
             this.engine = Engine.GetInstance(this);
@@ -31,7 +48,7 @@ namespace MyChatDB
 
         private async void console_btn_clicked(object sender, EventArgs e)
         {
-            PrintLn("Open Console Window");
+            PrintLn_("Open Console Window");
             new ConsoleWindow().Show();
         }
 
@@ -59,7 +76,7 @@ namespace MyChatDB
             }
         }
 
-        public void PrintLn(string text)
+        public void PrintLn_(string text)
         {
             AppendText(text + Environment.NewLine);
         }
@@ -72,7 +89,7 @@ namespace MyChatDB
 
         public void HandleResult(ResultObject resultObject)
         {
-            PrintLn(string.Format("HandleResult called: {0}", resultObject._stdout));
+            PrintLn_(string.Format("HandleResult called: {0}", resultObject._stdout));
         }
 
         private void transcriptTextBox_TextChanged(object sender, EventArgs e)

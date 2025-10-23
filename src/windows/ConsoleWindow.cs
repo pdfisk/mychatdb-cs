@@ -32,9 +32,9 @@ namespace MyChatDB
 
         private async void run_btn_clicked(object sender, EventArgs e)
         {
-            PrintLn("console_btn_clicked");
-            var code = "print(5+6)";
-            engine.RunScript(code, this);
+            var code = transcriptTextBox.Text;
+            engine.RunScript(code, TranscriptWindow.GetInstance());
+            Console.WriteLine("Executed engineRunScript");
             Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync(code);
             await task;
         }
