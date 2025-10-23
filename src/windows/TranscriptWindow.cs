@@ -89,7 +89,7 @@ namespace MyChatDB
 
         public void HandleResult(ResultObject resultObject)
         {
-            PrintLn_(string.Format("HandleResult called: {0}", resultObject._stdout));
+            PrintLn_(resultObject._stdout);
         }
 
         private void transcriptTextBox_TextChanged(object sender, EventArgs e)
