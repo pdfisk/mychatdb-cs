@@ -14,6 +14,7 @@ namespace MyChatDB.core.iron_python
     {
         static Engine Instance;
         IResultHandler _resultHandler;
+        private bool _running = false;
         private readonly ScriptEngine _engine;
         private readonly ScriptScope _scope;
         private readonly MemoryStream _stdoutStream;
@@ -49,13 +50,10 @@ namespace MyChatDB.core.iron_python
         /// </summary>
         public void LoadScript(string filePath)
         {
-            Console.WriteLine($"Loading Python script: {filePath}");
-            var scriptsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scripts");
-            var fullPath = Path.Combine(scriptsPath, filePath);
-            Console.WriteLine($"fullPath: {fullPath}");
-            Console.WriteLine($"File exists: {File.Exists(fullPath)}");
-            if (File.Exists(fullPath))
-                _engine.ExecuteFile(fullPath, _scope);
+            //var scriptsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scripts");
+            //var fullPath = Path.Combine(scriptsPath, filePath);
+            //if (File.Exists(fullPath))
+            //    _engine.ExecuteFile(fullPath, _scope);
         }
 
         /// <summary>
@@ -67,8 +65,13 @@ namespace MyChatDB.core.iron_python
             string jsonArgs,
             CancellationToken cancellationToken = default)
         {
+            if (_running)
+                return (null, "", "");
+            _running = true;
+
             return await Task.Run(() =>
             {
+                Console.WriteLine("CallFunctionAsync");
                 cancellationToken.ThrowIfCancellationRequested();
                 ResetStreams();
 
@@ -98,14 +101,19 @@ namespace MyChatDB.core.iron_python
 
                 cancellationToken.ThrowIfCancellationRequested();
 
+                _running = false;
+                Console.WriteLine("Function Executed");
                 return (result, GetStdOut(), GetStdErr());
             }, cancellationToken);
         }
 
         public async void RunScript(string code, IResultHandler resultHandler=null)
         {
+            if (_running) return;
+            _running = true;
             Task<(object result, string stdout, string stderr)> task = ExecuteAsync(code);
             await task;
+            _running = false;
             ResultObject resultObject = new ResultObject(task.Result.result, task.Result.stdout, task.Result.stderr);
             if (resultHandler != null)
             {
@@ -138,6 +146,7 @@ namespace MyChatDB.core.iron_python
                 cancellationToken.ThrowIfCancellationRequested();
                 var stdout = GetStdOut().TrimEnd();
                 var stderr = GetStdErr().TrimEnd();
+                Console.WriteLine("EXECUTED");
                 return (result, stdout, stderr);
             }, cancellationToken);
         }

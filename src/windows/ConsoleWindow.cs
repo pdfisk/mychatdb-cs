@@ -34,9 +34,6 @@ namespace MyChatDB
         {
             var code = transcriptTextBox.Text;
             engine.RunScript(code, TranscriptWindow.GetInstance());
-            Console.WriteLine("Executed engineRunScript");
-            Task<(object result, string stdout, string stderr)> task = engine.ExecuteAsync(code);
-            await task;
         }
 
         public void AppendText(string text)
