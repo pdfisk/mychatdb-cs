@@ -50,10 +50,10 @@ namespace MyChatDB.core.iron_python
         /// </summary>
         public void LoadScript(string filePath)
         {
-            //var scriptsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scripts");
-            //var fullPath = Path.Combine(scriptsPath, filePath);
-            //if (File.Exists(fullPath))
-            //    _engine.ExecuteFile(fullPath, _scope);
+            var scriptsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scripts");
+            var fullPath = Path.Combine(scriptsPath, filePath);
+            if (File.Exists(fullPath))
+                _engine.ExecuteFile(fullPath, _scope);
         }
 
         /// <summary>
@@ -71,7 +71,6 @@ namespace MyChatDB.core.iron_python
 
             return await Task.Run(() =>
             {
-                Console.WriteLine("CallFunctionAsync");
                 cancellationToken.ThrowIfCancellationRequested();
                 ResetStreams();
 
@@ -102,7 +101,6 @@ namespace MyChatDB.core.iron_python
                 cancellationToken.ThrowIfCancellationRequested();
 
                 _running = false;
-                Console.WriteLine("Function Executed");
                 return (result, GetStdOut(), GetStdErr());
             }, cancellationToken);
         }
@@ -133,7 +131,6 @@ namespace MyChatDB.core.iron_python
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 ResetStreams();
-                Console.WriteLine("RUN");
 
                 if (!string.IsNullOrEmpty(jsonLocals))
                 {
@@ -146,7 +143,6 @@ namespace MyChatDB.core.iron_python
                 cancellationToken.ThrowIfCancellationRequested();
                 var stdout = GetStdOut().TrimEnd();
                 var stderr = GetStdErr().TrimEnd();
-                Console.WriteLine("EXECUTED");
                 return (result, stdout, stderr);
             }, cancellationToken);
         }
