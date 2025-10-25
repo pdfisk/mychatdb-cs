@@ -1,14 +1,14 @@
-﻿using System;
+﻿using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
-using MyChatDB.src.iron_python.util;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-namespace MyChatDB.core.iron_python
+
+namespace MyChatDB.iron_python.engine
 {
     public class Engine 
     {

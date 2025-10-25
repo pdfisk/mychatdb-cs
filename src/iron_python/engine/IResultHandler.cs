@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyChatDB.src.iron_python.util
+namespace MyChatDB.iron_python.engine
 {
     public interface IResultHandler
     {
