@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MyChatDB.iron_python.engine
 {
-    public class Engine 
+    public class Engine
     {
         static Engine Instance;
         IResultHandler _resultHandler;
@@ -37,12 +37,20 @@ namespace MyChatDB.iron_python.engine
 
         private Engine()
         {
+            var baseDir = "C:/Program Files/IronPython 3.4/";
+            var paths = new string[]
+            {baseDir,
+                $"{baseDir}/DLL",
+                $"{baseDir}/Lib",
+                $"{baseDir}/Lib/site-packages"
+           };
             _engine = Python.CreateEngine();
             _scope = _engine.CreateScope();
             _stdoutStream = new MemoryStream();
             _stderrStream = new MemoryStream();
             _stdoutWriter = new StreamWriter(_stdoutStream) { AutoFlush = true };
             _stderrWriter = new StreamWriter(_stderrStream) { AutoFlush = true };
+            _engine.SetSearchPaths(paths);
             _engine.Runtime.IO.SetOutput(_stdoutStream, _stdoutWriter);
             _engine.Runtime.IO.SetErrorOutput(_stderrStream, _stderrWriter);
         }
@@ -56,8 +64,8 @@ namespace MyChatDB.iron_python.engine
             var fullPath = Path.Combine(scriptsPath, filePath);
             var exists = File.Exists(fullPath);
             Console.WriteLine($"Loading script from: {fullPath} {exists}");
-            if (File.Exists(fullPath))
-                _engine.ExecuteFile(fullPath, _scope);
+            //if (File.Exists(fullPath))
+            //_engine.ExecuteFile(fullPath, _scope);
         }
 
         /// <summary>
@@ -109,7 +117,7 @@ namespace MyChatDB.iron_python.engine
             }, cancellationToken);
         }
 
-        public async void RunScript(string code, IResultHandler resultHandler=null)
+        public async void RunScript(string code, IResultHandler resultHandler = null)
         {
             if (_running) return;
             _running = true;
