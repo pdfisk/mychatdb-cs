@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
-            this.button1 = new System.Windows.Forms.Button();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.transcriptTextBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pythonBtn = new System.Windows.Forms.Button();
+            this.chatBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // transcriptToolStrip
@@ -42,15 +43,15 @@
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
             this.transcriptToolStrip.TabIndex = 0;
             // 
-            // button1
+            // clearBtn
             // 
-            this.button1.Location = new System.Drawing.Point(145, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.clear_btn_clicked);
+            this.clearBtn.Location = new System.Drawing.Point(228, 427);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearBtn.TabIndex = 1;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clear_btn_clicked);
             // 
             // transcriptTextBox
             // 
@@ -63,26 +64,37 @@
             this.transcriptTextBox.Size = new System.Drawing.Size(477, 425);
             this.transcriptTextBox.TabIndex = 2;
             // 
-            // button2
+            // pythonBtn
             // 
-            this.button2.Location = new System.Drawing.Point(30, 427);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Run";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.run_btn_clicked);
+            this.pythonBtn.Location = new System.Drawing.Point(30, 427);
+            this.pythonBtn.Name = "pythonBtn";
+            this.pythonBtn.Size = new System.Drawing.Size(75, 23);
+            this.pythonBtn.TabIndex = 3;
+            this.pythonBtn.Text = "Python";
+            this.pythonBtn.UseVisualStyleBackColor = true;
+            this.pythonBtn.Click += new System.EventHandler(this.python_btn_clicked);
             // 
-            // Console
+            // chatBtn
+            // 
+            this.chatBtn.Location = new System.Drawing.Point(129, 427);
+            this.chatBtn.Name = "chatBtn";
+            this.chatBtn.Size = new System.Drawing.Size(75, 23);
+            this.chatBtn.TabIndex = 4;
+            this.chatBtn.Text = "Chat";
+            this.chatBtn.UseVisualStyleBackColor = true;
+            this.chatBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatBtn_MouseClick);
+            // 
+            // ConsoleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.chatBtn);
+            this.Controls.Add(this.pythonBtn);
             this.Controls.Add(this.transcriptTextBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.transcriptToolStrip);
-            this.Name = "Console";
+            this.Name = "ConsoleWindow";
             this.Text = "Console";
             this.Load += new System.EventHandler(this.Transcript_Load);
             this.ResumeLayout(false);
@@ -93,9 +105,10 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip transcriptToolStrip;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.TextBox transcriptTextBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button pythonBtn;
+        private System.Windows.Forms.Button chatBtn;
     }
 }
 

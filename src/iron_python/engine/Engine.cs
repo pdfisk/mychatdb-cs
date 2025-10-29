@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,7 +29,8 @@ namespace MyChatDB.iron_python.engine
             {
                 Instance = new Engine();
                 Instance._resultHandler = transcript;
-                Instance.LoadScript("math_ops.py");
+                //Instance.LoadScript("math_ops.py");
+                Instance.LoadScript("lm_client.py");
             }
             return Instance;
         }
@@ -52,6 +54,8 @@ namespace MyChatDB.iron_python.engine
         {
             var scriptsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scripts");
             var fullPath = Path.Combine(scriptsPath, filePath);
+            var exists = File.Exists(fullPath);
+            Console.WriteLine($"Loading script from: {fullPath} {exists}");
             if (File.Exists(fullPath))
                 _engine.ExecuteFile(fullPath, _scope);
         }

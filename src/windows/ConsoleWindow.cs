@@ -1,4 +1,5 @@
-﻿using MyChatDB.iron_python.engine;
+﻿using api;
+using MyChatDB.iron_python.engine;
 using System;
 using System.Windows.Forms;
 
@@ -28,7 +29,7 @@ namespace MyChatDB
             ClearText();
         }
 
-        private async void run_btn_clicked(object sender, EventArgs e)
+        private async void python_btn_clicked(object sender, EventArgs e)
         {
             var code = transcriptTextBox.Text;
             engine.RunScript(code, TranscriptWindow.GetInstance());
@@ -72,6 +73,23 @@ namespace MyChatDB
         public void HandleResult(ResultObject resultObject)
         {
             PrintLn(string.Format("Result: [{0}]", resultObject._stdout));
+        }
+
+        private void chatBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            LmApi.Instance.GetModels();
+     
+            //LmApi.Instance.ChatAsync(transcriptTextBox.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
+            //{
+            //    if (task.Exception != null)
+            //    {
+            //        PrintLn("Error: " + task.Exception.InnerException.Message);
+            //    }
+            //    else
+            //    {
+            //        PrintLn("Response: " + task.Result);
+            //    }
+            //});
         }
     }
 

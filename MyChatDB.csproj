@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\api\lmapi.cs" />
     <Compile Include="src\iron_python\engine\Engine.cs" />
     <Compile Include="src\iron_python\engine\IResultHandler.cs" />
     <Compile Include="src\iron_python\engine\ResultObject.cs" />
@@ -770,6 +771,9 @@
     <Content Include="lib\_weakrefset.py" />
     <Content Include="lib\__future__.py" />
     <Content Include="lib\__phello__.foo.py" />
+    <Content Include="src\iron_python\engine\scripts\lm_client.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="src\iron_python\engine\scripts\math_ops.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
