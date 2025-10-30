@@ -33,6 +33,7 @@
             this.transcriptTextBox = new System.Windows.Forms.TextBox();
             this.pythonBtn = new System.Windows.Forms.Button();
             this.chatBtn = new System.Windows.Forms.Button();
+            this.modelsBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // transcriptToolStrip
@@ -45,7 +46,7 @@
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(228, 427);
+            this.clearBtn.Location = new System.Drawing.Point(279, 427);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 23);
             this.clearBtn.TabIndex = 1;
@@ -76,7 +77,7 @@
             // 
             // chatBtn
             // 
-            this.chatBtn.Location = new System.Drawing.Point(129, 427);
+            this.chatBtn.Location = new System.Drawing.Point(113, 427);
             this.chatBtn.Name = "chatBtn";
             this.chatBtn.Size = new System.Drawing.Size(75, 23);
             this.chatBtn.TabIndex = 4;
@@ -84,11 +85,22 @@
             this.chatBtn.UseVisualStyleBackColor = true;
             this.chatBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatBtn_MouseClick);
             // 
+            // modelsBtn
+            // 
+            this.modelsBtn.Location = new System.Drawing.Point(196, 427);
+            this.modelsBtn.Name = "modelsBtn";
+            this.modelsBtn.Size = new System.Drawing.Size(75, 23);
+            this.modelsBtn.TabIndex = 5;
+            this.modelsBtn.Text = "Models";
+            this.modelsBtn.UseVisualStyleBackColor = true;
+            this.modelsBtn.Click += new System.EventHandler(this.modelsBtn_Click);
+            // 
             // ConsoleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 450);
+            this.Controls.Add(this.modelsBtn);
             this.Controls.Add(this.chatBtn);
             this.Controls.Add(this.pythonBtn);
             this.Controls.Add(this.transcriptTextBox);
@@ -109,6 +121,7 @@
         private System.Windows.Forms.TextBox transcriptTextBox;
         private System.Windows.Forms.Button pythonBtn;
         private System.Windows.Forms.Button chatBtn;
+        private System.Windows.Forms.Button modelsBtn;
     }
 }
 

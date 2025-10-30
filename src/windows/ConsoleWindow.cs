@@ -77,21 +77,23 @@ namespace MyChatDB
 
         private void chatBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            PrintLn("chatBtn_MouseClick");
-            LmApi.Instance.GetModels(TranscriptWindow.GetInstance());
-            PrintLn("Models requested.");
-
             LmApi.Instance.ChatAsync(transcriptTextBox.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
-            {
-                if (task.Exception != null)
-                {
-                    PrintLn("Error: " + task.Exception.InnerException.Message);
-                }
-                else
-                {
-                    PrintLn("Response: " + task.Result);
-                }
-            });
+             {
+                 if (task.Exception != null)
+                 {
+                     TranscriptWindow.PrintLn("Error: " + task.Exception.InnerException.Message);
+                 }
+                 else
+                 {
+                     TranscriptWindow.PrintLn("Response: " + task.Result);
+                 }
+             });
+        }
+
+        private void modelsBtn_Click(object sender, EventArgs e)
+        {
+            LmApi.Instance.GetModels(TranscriptWindow.GetInstance());
+
         }
     }
 
