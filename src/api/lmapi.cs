@@ -1,3 +1,4 @@
+using MyChatDB.iron_python.engine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -245,7 +246,7 @@ namespace api
         }
 
 
-        async public void GetModels()
+        public async void GetModels(IResultHandler resultHandler = null)
         {
             var endpoint = string.Format("{0}/models", BaseUrl.TrimEnd('/'));
             var request = new HttpRequestMessage(HttpMethod.Get, endpoint)
@@ -256,16 +257,12 @@ namespace api
                 var responseJson = await response.Content.ReadAsStringAsync();
                 if (!response.IsSuccessStatusCode)
                     throw new Exception(string.Format("Error {0}: {1}", response.StatusCode, responseJson));
-
-                //var obj = JObject.Parse(responseJson);
-                Console.WriteLine(responseJson);
-                //var parsed = obj["output_parsed"];
-                //if (parsed != null)
-                    //return JsonConvert.DeserializeObject<T>(parsed.ToString());
-
-                //return default(T);
+                if (resultHandler != null)
+                {
+                    resultHandler.HandleResult(new ResultObject(responseJson, responseJson, ""));
+                }
             }
-     
+
         }
 
     }

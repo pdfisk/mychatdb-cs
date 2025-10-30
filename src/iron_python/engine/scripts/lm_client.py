@@ -1,6 +1,8 @@
-﻿import json
-import requests
+﻿import requests
 from typing import Any, Dict, Optional
+import clr
+clr.AddReference("System.Web.Extensions")
+from System.Web.Script.Serialization import JavaScriptSerializer
 
 
 class LmClient:
@@ -12,10 +14,12 @@ class LmClient:
     def __init__(
         self,
         base_url: str = "http://localhost:1234/v1/chat/completions",
-        model: str = "default",
+        model: str = "qwen/qwen3-coder-30b"
     ):
-        self.base_url = base_url
+        self.completions_url = f'{base_url}/chat/completions'
+        self.models_url =  f'{base_url}/models'
         self.model = model
+        self.serializer = JavaScriptSerializer()
 
     def get_models(self) -> Optional[Dict[str, Any]]:
         """
@@ -23,7 +27,7 @@ class LmClient:
         """
         try:
             response = requests.get(
-                self.base_url.replace("/chat/completions", "/models")
+                self.model_url
             )
             response.raise_for_status()
             return response.json()
@@ -40,7 +44,7 @@ class LmClient:
         """
         try:
             # Convert structured data to a text message for the LLM
-            user_content = json.dumps(structured_input, ensure_ascii=False, indent=2)
+            user_content = self.serializer.Serialize(structured_input, ensure_ascii=False, indent=2)
 
             payload = {
                 "model": self.model,
@@ -55,7 +59,7 @@ class LmClient:
 
             headers = {"Content-Type": "application/json"}
             response = requests.post(
-                self.base_url, headers=headers, json=payload, timeout=60
+                self.completions_url, headers=headers, json=payload, timeout=60
             )
             response.raise_for_status()
 
@@ -65,25 +69,9 @@ class LmClient:
             content = (
                 data.get("choices", [{}])[0].get("message", {}).get("content", "{}")
             )
-            return json.loads(content)
+            return self.serializer.DeserializeObject(content)
 
-        except (requests.RequestException, ValueError, json.JSONDecodeError) as e:
+        except (requests.RequestException, ValueError, 'error') as e:
             print(f"[Error] {e}")
             return None
 
-
-if __name__ == "__main__":
-    # Example structured data task
-    client = LLMStudioClient()
-
-    input_data = {
-        "task": "classify_review",
-        "text": "The product quality was excellent but shipping was slow.",
-        "labels": ["positive", "neutral", "negative"],
-    }
-
-    print("Sending structured data to LLM Studio...")
-    response = client.send_message(input_data)
-
-    print("\nStructured Response:")
-    print(json.dumps(response, indent=2, ensure_ascii=False))
