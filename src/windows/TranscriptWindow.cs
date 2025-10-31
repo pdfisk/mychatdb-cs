@@ -18,7 +18,7 @@ namespace MyChatDB
             return instance;
         }
 
-        public static void PrintLn(string text)
+        public void PrintLn(string text)
         {
             var window = GetInstance();
             window.PrintLn_(text);

@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +28,6 @@ namespace MyChatDB.iron_python.engine
             {
                 Instance = new Engine();
                 Instance._resultHandler = transcript;
-                //Instance.LoadScript("math_ops.py");
                 Instance.LoadScript("lm_client.py");
             }
             return Instance;
@@ -65,7 +63,7 @@ namespace MyChatDB.iron_python.engine
             var exists = File.Exists(fullPath);
             Console.WriteLine($"Loading script from: {fullPath} {exists}");
             //if (File.Exists(fullPath))
-            //_engine.ExecuteFile(fullPath, _scope);
+            //    _engine.ExecuteFile(fullPath, _scope);
         }
 
         /// <summary>
@@ -140,23 +138,23 @@ namespace MyChatDB.iron_python.engine
             CancellationToken cancellationToken = default)
         {
             return await Task.Run(() =>
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                ResetStreams();
+           {
+               cancellationToken.ThrowIfCancellationRequested();
+               ResetStreams();
 
-                if (!string.IsNullOrEmpty(jsonLocals))
-                {
-                    var locals = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonLocals);
-                    foreach (var kvp in locals)
-                        _scope.SetVariable(kvp.Key, kvp.Value);
-                }
+               if (!string.IsNullOrEmpty(jsonLocals))
+               {
+                   var locals = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonLocals);
+                   foreach (var kvp in locals)
+                       _scope.SetVariable(kvp.Key, kvp.Value);
+               }
 
-                var result = _engine.Execute(code, _scope);
-                cancellationToken.ThrowIfCancellationRequested();
-                var stdout = GetStdOut().TrimEnd();
-                var stderr = GetStdErr().TrimEnd();
-                return (result, stdout, stderr);
-            }, cancellationToken);
+               var result = _engine.Execute(code, _scope);
+               cancellationToken.ThrowIfCancellationRequested();
+               var stdout = GetStdOut().TrimEnd();
+               var stderr = GetStdErr().TrimEnd();
+               return (result, stdout, stderr);
+           }, cancellationToken);
         }
 
         /// <summary>
@@ -183,6 +181,11 @@ namespace MyChatDB.iron_python.engine
             string output = reader.ReadToEnd();
             _stderrStream.Position = _stderrStream.Length;
             return output;
+        }
+
+        void PrintLn(string text)
+        {
+            _resultHandler?.PrintLn(text);
         }
 
         private void ResetStreams()

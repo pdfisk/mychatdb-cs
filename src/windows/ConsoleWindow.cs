@@ -75,17 +75,27 @@ namespace MyChatDB
             PrintLn(string.Format("Result: [{0}]", resultObject._stdout));
         }
 
+        void TranscriptPrintLn(string text)
+        {
+            TranscriptWindow.GetInstance().PrintLn(text);
+        }
+
         private void chatBtn_MouseClick(object sender, MouseEventArgs e)
         {
+            TranscriptPrintLn("Calling LLM...");
+            var startTime = DateTime.Now;
             LmApi.Instance.ChatAsync(transcriptTextBox.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
              {
                  if (task.Exception != null)
                  {
-                     TranscriptWindow.PrintLn("Error: " + task.Exception.InnerException.Message);
+                     TranscriptWindow.GetInstance().PrintLn("Error: " + task.Exception.InnerException.Message);
                  }
                  else
                  {
-                     TranscriptWindow.PrintLn("Response: " + task.Result);
+                     var endTime = DateTime.Now;
+                     var seconds = Math.Round((endTime - startTime).TotalSeconds, 2);
+                     TranscriptPrintLn($"Completed in {seconds} seconds.");
+                     TranscriptWindow.GetInstance().PrintLn("Response: " + task.Result);
                  }
              });
         }
