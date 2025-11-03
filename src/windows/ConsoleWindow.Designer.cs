@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
-            this.clearBtn = new System.Windows.Forms.Button();
-            this.transcriptTextBox = new System.Windows.Forms.TextBox();
-            this.pythonBtn = new System.Windows.Forms.Button();
-            this.chatBtn = new System.Windows.Forms.Button();
-            this.modelsBtn = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cinTB = new System.Windows.Forms.TextBox();
+            this.coutTB = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // transcriptToolStrip
@@ -43,72 +45,64 @@
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
             this.transcriptToolStrip.TabIndex = 0;
+            this.transcriptToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.transcriptToolStrip_ItemClicked);
             // 
-            // clearBtn
+            // splitContainer1
             // 
-            this.clearBtn.Location = new System.Drawing.Point(279, 427);
-            this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(75, 23);
-            this.clearBtn.TabIndex = 1;
-            this.clearBtn.Text = "Clear";
-            this.clearBtn.UseVisualStyleBackColor = true;
-            this.clearBtn.Click += new System.EventHandler(this.clear_btn_clicked);
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // transcriptTextBox
+            // splitContainer1.Panel1
             // 
-            this.transcriptTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transcriptTextBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transcriptTextBox.Location = new System.Drawing.Point(0, 0);
-            this.transcriptTextBox.Multiline = true;
-            this.transcriptTextBox.Name = "transcriptTextBox";
-            this.transcriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.transcriptTextBox.Size = new System.Drawing.Size(477, 425);
-            this.transcriptTextBox.TabIndex = 2;
+            this.splitContainer1.Panel1.Controls.Add(this.cinTB);
             // 
-            // pythonBtn
+            // splitContainer1.Panel2
             // 
-            this.pythonBtn.Location = new System.Drawing.Point(30, 427);
-            this.pythonBtn.Name = "pythonBtn";
-            this.pythonBtn.Size = new System.Drawing.Size(75, 23);
-            this.pythonBtn.TabIndex = 3;
-            this.pythonBtn.Text = "Python";
-            this.pythonBtn.UseVisualStyleBackColor = true;
-            this.pythonBtn.Click += new System.EventHandler(this.python_btn_clicked);
+            this.splitContainer1.Panel2.Controls.Add(this.coutTB);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Size = new System.Drawing.Size(477, 425);
+            this.splitContainer1.SplitterDistance = 235;
+            this.splitContainer1.TabIndex = 1;
             // 
-            // chatBtn
+            // cinTB
             // 
-            this.chatBtn.Location = new System.Drawing.Point(113, 427);
-            this.chatBtn.Name = "chatBtn";
-            this.chatBtn.Size = new System.Drawing.Size(75, 23);
-            this.chatBtn.TabIndex = 4;
-            this.chatBtn.Text = "Chat";
-            this.chatBtn.UseVisualStyleBackColor = true;
-            this.chatBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatBtn_MouseClick);
+            this.cinTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cinTB.Location = new System.Drawing.Point(0, 0);
+            this.cinTB.Multiline = true;
+            this.cinTB.Name = "cinTB";
+            this.cinTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.cinTB.Size = new System.Drawing.Size(235, 425);
+            this.cinTB.TabIndex = 0;
+            this.cinTB.WordWrap = false;
             // 
-            // modelsBtn
+            // coutTB
             // 
-            this.modelsBtn.Location = new System.Drawing.Point(196, 427);
-            this.modelsBtn.Name = "modelsBtn";
-            this.modelsBtn.Size = new System.Drawing.Size(75, 23);
-            this.modelsBtn.TabIndex = 5;
-            this.modelsBtn.Text = "Models";
-            this.modelsBtn.UseVisualStyleBackColor = true;
-            this.modelsBtn.Click += new System.EventHandler(this.modelsBtn_Click);
+            this.coutTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coutTB.Location = new System.Drawing.Point(0, 0);
+            this.coutTB.Multiline = true;
+            this.coutTB.Name = "coutTB";
+            this.coutTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.coutTB.Size = new System.Drawing.Size(238, 425);
+            this.coutTB.TabIndex = 0;
+            this.coutTB.WordWrap = false;
             // 
             // ConsoleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 450);
-            this.Controls.Add(this.modelsBtn);
-            this.Controls.Add(this.chatBtn);
-            this.Controls.Add(this.pythonBtn);
-            this.Controls.Add(this.transcriptTextBox);
-            this.Controls.Add(this.clearBtn);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.transcriptToolStrip);
             this.Name = "ConsoleWindow";
             this.Text = "Console";
             this.Load += new System.EventHandler(this.Transcript_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,11 +111,9 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip transcriptToolStrip;
-        private System.Windows.Forms.Button clearBtn;
-        private System.Windows.Forms.TextBox transcriptTextBox;
-        private System.Windows.Forms.Button pythonBtn;
-        private System.Windows.Forms.Button chatBtn;
-        private System.Windows.Forms.Button modelsBtn;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TextBox cinTB;
+        private System.Windows.Forms.TextBox coutTB;
     }
 }
 

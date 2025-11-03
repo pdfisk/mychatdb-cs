@@ -31,31 +31,31 @@ namespace MyChatDB
 
         private async void python_btn_clicked(object sender, EventArgs e)
         {
-            var code = transcriptTextBox.Text;
+            var code = coutTB.Text;
             engine.RunScript(code, TranscriptWindow.GetInstance());
         }
 
         public void AppendText(string text)
         {
-            if (transcriptTextBox.InvokeRequired)
+            if (coutTB.InvokeRequired)
             {
-                transcriptTextBox.Invoke(new Action<string>(AppendText), text);
+                coutTB.Invoke(new Action<string>(AppendText), text);
             }
             else
             {
-                transcriptTextBox.AppendText(text);
+                coutTB.AppendText(text);
             }
         }
 
         public void ClearText()
         {
-            if (transcriptTextBox.InvokeRequired)
+            if (coutTB.InvokeRequired)
             {
-                transcriptTextBox.Invoke(new Action(ClearText));
+                coutTB.Invoke(new Action(ClearText));
             }
             else
             {
-                transcriptTextBox.Clear();
+                coutTB.Clear();
             }
         }
 
@@ -84,7 +84,7 @@ namespace MyChatDB
         {
             TranscriptPrintLn("Calling LLM...");
             var startTime = DateTime.Now;
-            LmApi.Instance.ChatAsync(transcriptTextBox.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
+            LmApi.Instance.ChatAsync(coutTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
              {
                  if (task.Exception != null)
                  {
@@ -103,6 +103,16 @@ namespace MyChatDB
         private void modelsBtn_Click(object sender, EventArgs e)
         {
             LmApi.Instance.GetModels(TranscriptWindow.GetInstance());
+
+        }
+
+        private void transcriptToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
