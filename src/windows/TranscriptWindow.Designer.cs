@@ -28,29 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranscriptWindow));
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
-            this.button1 = new System.Windows.Forms.Button();
             this.transcriptTextBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.consoleBtn = new System.Windows.Forms.ToolStripButton();
+            this.clearBtn = new System.Windows.Forms.ToolStripButton();
+            this.transcriptToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // transcriptToolStrip
             // 
             this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consoleBtn,
+            this.clearBtn});
             this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
             this.transcriptToolStrip.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(124, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.clear_btn_clicked);
             // 
             // transcriptTextBox
             // 
@@ -64,28 +59,38 @@
             this.transcriptTextBox.TabIndex = 2;
             this.transcriptTextBox.TextChanged += new System.EventHandler(this.transcriptTextBox_TextChanged);
             // 
-            // button2
+            // consoleBtn
             // 
-            this.button2.Location = new System.Drawing.Point(26, 427);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Console";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.console_btn_clicked);
+            this.consoleBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.consoleBtn.Image = ((System.Drawing.Image)(resources.GetObject("consoleBtn.Image")));
+            this.consoleBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.consoleBtn.Name = "consoleBtn";
+            this.consoleBtn.Size = new System.Drawing.Size(54, 22);
+            this.consoleBtn.Text = "Console";
+            this.consoleBtn.Click += new System.EventHandler(this.consoleBtn_Click);
+            // 
+            // clearBtn
+            // 
+            this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearBtn.Image")));
+            this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(38, 22);
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // TranscriptWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 450);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.transcriptTextBox);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.transcriptToolStrip);
             this.Name = "TranscriptWindow";
             this.Text = "Transcript";
             this.Load += new System.EventHandler(this.Transcript_Load);
+            this.transcriptToolStrip.ResumeLayout(false);
+            this.transcriptToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,9 +99,9 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip transcriptToolStrip;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox transcriptTextBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripButton consoleBtn;
+        private System.Windows.Forms.ToolStripButton clearBtn;
     }
 }
 
