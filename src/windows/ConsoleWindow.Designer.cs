@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsoleWindow));
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.coutTB = new System.Windows.Forms.TextBox();
             this.pythonBtn = new System.Windows.Forms.ToolStripButton();
             this.chatBtn = new System.Windows.Forms.ToolStripButton();
             this.modelsBtn = new System.Windows.Forms.ToolStripButton();
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.cinTB = new System.Windows.Forms.TextBox();
+            this.coutTB = new System.Windows.Forms.TextBox();
             this.transcriptToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -58,6 +58,46 @@
             this.transcriptToolStrip.TabIndex = 0;
             this.transcriptToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.transcriptToolStrip_ItemClicked);
             // 
+            // pythonBtn
+            // 
+            this.pythonBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.pythonBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pythonBtn.Name = "pythonBtn";
+            this.pythonBtn.Size = new System.Drawing.Size(49, 22);
+            this.pythonBtn.Text = "Python";
+            this.pythonBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.pythonBtn.Click += new System.EventHandler(this.python_btn_clicked);
+            // 
+            // chatBtn
+            // 
+            this.chatBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.chatBtn.Image = ((System.Drawing.Image)(resources.GetObject("chatBtn.Image")));
+            this.chatBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.chatBtn.Name = "chatBtn";
+            this.chatBtn.Size = new System.Drawing.Size(36, 22);
+            this.chatBtn.Text = "Chat";
+            this.chatBtn.Click += new System.EventHandler(this.chatBtn_Click);
+            // 
+            // modelsBtn
+            // 
+            this.modelsBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.modelsBtn.Image = ((System.Drawing.Image)(resources.GetObject("modelsBtn.Image")));
+            this.modelsBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.modelsBtn.Name = "modelsBtn";
+            this.modelsBtn.Size = new System.Drawing.Size(50, 22);
+            this.modelsBtn.Text = "Models";
+            this.modelsBtn.Click += new System.EventHandler(this.modelsBtn_Click);
+            // 
+            // clearBtn
+            // 
+            this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearBtn.Image")));
+            this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(38, 22);
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.Click += new System.EventHandler(this.clear_btn_clicked);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -77,6 +117,18 @@
             this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.TabIndex = 1;
             // 
+            // cinTB
+            // 
+            this.cinTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cinTB.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cinTB.Location = new System.Drawing.Point(0, 0);
+            this.cinTB.Multiline = true;
+            this.cinTB.Name = "cinTB";
+            this.cinTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.cinTB.Size = new System.Drawing.Size(477, 225);
+            this.cinTB.TabIndex = 0;
+            this.cinTB.WordWrap = false;
+            // 
             // coutTB
             // 
             this.coutTB.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,54 +141,6 @@
             this.coutTB.Size = new System.Drawing.Size(477, 196);
             this.coutTB.TabIndex = 0;
             this.coutTB.WordWrap = false;
-            // 
-            // pythonBtn
-            // 
-            this.pythonBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.pythonBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pythonBtn.Name = "pythonBtn";
-            this.pythonBtn.Size = new System.Drawing.Size(49, 22);
-            this.pythonBtn.Text = "Python";
-            this.pythonBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // chatBtn
-            // 
-            this.chatBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.chatBtn.Image = ((System.Drawing.Image)(resources.GetObject("chatBtn.Image")));
-            this.chatBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.chatBtn.Name = "chatBtn";
-            this.chatBtn.Size = new System.Drawing.Size(36, 22);
-            this.chatBtn.Text = "Chat";
-            // 
-            // modelsBtn
-            // 
-            this.modelsBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.modelsBtn.Image = ((System.Drawing.Image)(resources.GetObject("modelsBtn.Image")));
-            this.modelsBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.modelsBtn.Name = "modelsBtn";
-            this.modelsBtn.Size = new System.Drawing.Size(50, 22);
-            this.modelsBtn.Text = "Models";
-            // 
-            // clearBtn
-            // 
-            this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearBtn.Image")));
-            this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(38, 22);
-            this.clearBtn.Text = "Clear";
-            // 
-            // cinTB
-            // 
-            this.cinTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cinTB.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cinTB.Location = new System.Drawing.Point(0, 0);
-            this.cinTB.Multiline = true;
-            this.cinTB.Name = "cinTB";
-            this.cinTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.cinTB.Size = new System.Drawing.Size(477, 225);
-            this.cinTB.TabIndex = 0;
-            this.cinTB.WordWrap = false;
             // 
             // ConsoleWindow
             // 

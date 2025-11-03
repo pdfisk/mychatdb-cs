@@ -115,6 +115,11 @@ namespace MyChatDB
         {
 
         }
+
+        private void chatBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
