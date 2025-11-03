@@ -52,6 +52,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
@@ -62,28 +63,31 @@
             this.splitContainer1.Panel2.Controls.Add(this.coutTB);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(477, 425);
-            this.splitContainer1.SplitterDistance = 235;
+            this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.TabIndex = 1;
             // 
             // cinTB
             // 
             this.cinTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cinTB.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cinTB.Location = new System.Drawing.Point(0, 0);
             this.cinTB.Multiline = true;
             this.cinTB.Name = "cinTB";
             this.cinTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.cinTB.Size = new System.Drawing.Size(235, 425);
+            this.cinTB.Size = new System.Drawing.Size(477, 225);
             this.cinTB.TabIndex = 0;
             this.cinTB.WordWrap = false;
             // 
             // coutTB
             // 
             this.coutTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coutTB.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coutTB.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.coutTB.Location = new System.Drawing.Point(0, 0);
             this.coutTB.Multiline = true;
             this.coutTB.Name = "coutTB";
             this.coutTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.coutTB.Size = new System.Drawing.Size(238, 425);
+            this.coutTB.Size = new System.Drawing.Size(477, 196);
             this.coutTB.TabIndex = 0;
             this.coutTB.WordWrap = false;
             // 
