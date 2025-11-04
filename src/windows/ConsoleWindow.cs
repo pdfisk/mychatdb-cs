@@ -32,30 +32,30 @@ namespace MyChatDB
         private async void python_btn_clicked(object sender, EventArgs e)
         {
             var code = coutTB.Text;
-            engine.RunScript(code, TranscriptWindow.GetInstance());
+            engine.RunScript(code, this);
         }
 
         public void AppendText(string text)
         {
-            if (coutTB.InvokeRequired)
+            if (coutTB2.InvokeRequired)
             {
-                coutTB.Invoke(new Action<string>(AppendText), text);
+                coutTB2.Invoke(new Action<string>(AppendText), text);
             }
             else
             {
-                coutTB.AppendText(text);
+                coutTB2.AppendText(text);
             }
         }
 
         public void ClearText()
         {
-            if (coutTB.InvokeRequired)
+            if (coutTB2.InvokeRequired)
             {
-                coutTB.Invoke(new Action(ClearText));
+                coutTB2.Invoke(new Action(ClearText));
             }
             else
             {
-                coutTB.Clear();
+                coutTB2.Clear();
             }
         }
 
@@ -72,7 +72,7 @@ namespace MyChatDB
 
         public void HandleResult(ResultObject resultObject)
         {
-            PrintLn(string.Format("Result: [{0}]", resultObject._stdout));
+            PrintLn(resultObject._stdout);
         }
 
         void TranscriptPrintLn(string text)

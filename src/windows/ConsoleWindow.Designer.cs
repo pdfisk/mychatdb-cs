@@ -35,7 +35,7 @@
             this.modelsBtn = new System.Windows.Forms.ToolStripButton();
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.cinTB = new System.Windows.Forms.TextBox();
+            this.coutTB2 = new System.Windows.Forms.TextBox();
             this.coutTB = new System.Windows.Forms.TextBox();
             this.transcriptToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -107,7 +107,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.cinTB);
+            this.splitContainer1.Panel1.Controls.Add(this.coutTB2);
             // 
             // splitContainer1.Panel2
             // 
@@ -117,17 +117,17 @@
             this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.TabIndex = 1;
             // 
-            // cinTB
+            // coutTB2
             // 
-            this.cinTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cinTB.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cinTB.Location = new System.Drawing.Point(0, 0);
-            this.cinTB.Multiline = true;
-            this.cinTB.Name = "cinTB";
-            this.cinTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.cinTB.Size = new System.Drawing.Size(477, 225);
-            this.cinTB.TabIndex = 0;
-            this.cinTB.WordWrap = false;
+            this.coutTB2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coutTB2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coutTB2.Location = new System.Drawing.Point(0, 0);
+            this.coutTB2.Multiline = true;
+            this.coutTB2.Name = "coutTB2";
+            this.coutTB2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.coutTB2.Size = new System.Drawing.Size(477, 225);
+            this.coutTB2.TabIndex = 0;
+            this.coutTB2.WordWrap = false;
             // 
             // coutTB
             // 
@@ -174,7 +174,7 @@
         private System.Windows.Forms.ToolStripButton chatBtn;
         private System.Windows.Forms.ToolStripButton modelsBtn;
         private System.Windows.Forms.ToolStripButton clearBtn;
-        private System.Windows.Forms.TextBox cinTB;
+        private System.Windows.Forms.TextBox coutTB2;
     }
 }
 
