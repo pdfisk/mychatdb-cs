@@ -31,31 +31,31 @@ namespace MyChatDB
 
         private async void python_btn_clicked(object sender, EventArgs e)
         {
-            var code = coutTB.Text;
+            var code = cinTB.Text;
             engine.RunScript(code, this);
         }
 
         public void AppendText(string text)
         {
-            if (coutTB2.InvokeRequired)
+            if (coutTB.InvokeRequired)
             {
-                coutTB2.Invoke(new Action<string>(AppendText), text);
+                coutTB.Invoke(new Action<string>(AppendText), text);
             }
             else
             {
-                coutTB2.AppendText(text);
+                coutTB.AppendText(text);
             }
         }
 
         public void ClearText()
         {
-            if (coutTB2.InvokeRequired)
+            if (coutTB.InvokeRequired)
             {
-                coutTB2.Invoke(new Action(ClearText));
+                coutTB.Invoke(new Action(ClearText));
             }
             else
             {
-                coutTB2.Clear();
+                coutTB.Clear();
             }
         }
 
@@ -84,7 +84,7 @@ namespace MyChatDB
         {
             TranscriptPrintLn("Calling LLM...");
             var startTime = DateTime.Now;
-            LmApi.Instance.ChatAsync(coutTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
+            LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
              {
                  if (task.Exception != null)
                  {
