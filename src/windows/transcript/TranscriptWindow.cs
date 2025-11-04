@@ -95,6 +95,24 @@ namespace MyChatDB
         {
 
         }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            if (transcriptTextBox.InvokeRequired)
+            {
+                transcriptTextBox.Invoke(new Action(ClearText));
+            }
+            else
+            {
+                transcriptTextBox.Clear();
+            }
+        }
+
+        private void consoleBtn_Click(object sender, EventArgs e)
+        {
+            PrintLn_("Open Console Window");
+            new ConsoleWindow().Show();
+        }
     }
 
 }

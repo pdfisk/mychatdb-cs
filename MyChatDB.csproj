@@ -87,16 +87,16 @@
     <Compile Include="src\iron_python\engine\Engine.cs" />
     <Compile Include="src\iron_python\engine\IResultHandler.cs" />
     <Compile Include="src\iron_python\engine\ResultObject.cs" />
-    <Compile Include="src\windows\ConsoleWindow.cs">
+    <Compile Include="src\windows\console\ConsoleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\windows\ConsoleWindow.Designer.cs">
+    <Compile Include="src\windows\console\ConsoleWindow.Designer.cs">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\windows\TranscriptWindow.cs">
+    <Compile Include="src\windows\transcript\TranscriptWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\windows\TranscriptWindow.Designer.cs">
+    <Compile Include="src\windows\transcript\TranscriptWindow.Designer.cs">
       <DependentUpon>TranscriptWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -110,10 +110,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\windows\ConsoleWindow.resx">
+    <EmbeddedResource Include="src\windows\console\ConsoleWindow.resx">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\windows\TranscriptWindow.resx">
+    <EmbeddedResource Include="src\windows\transcript\TranscriptWindow.resx">
       <DependentUpon>TranscriptWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="lib\ctypes\macholib\fetch_macholib" />

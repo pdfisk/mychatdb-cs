@@ -31,8 +31,8 @@ namespace MyChatDB
 
         private async void python_btn_clicked(object sender, EventArgs e)
         {
-            var code = coutTB.Text;
-            engine.RunScript(code, TranscriptWindow.GetInstance());
+            var code = cinTB.Text;
+            engine.RunScript(code, this);
         }
 
         public void AppendText(string text)
@@ -72,7 +72,7 @@ namespace MyChatDB
 
         public void HandleResult(ResultObject resultObject)
         {
-            PrintLn(string.Format("Result: [{0}]", resultObject._stdout));
+            PrintLn(resultObject._stdout);
         }
 
         void TranscriptPrintLn(string text)
@@ -84,7 +84,7 @@ namespace MyChatDB
         {
             TranscriptPrintLn("Calling LLM...");
             var startTime = DateTime.Now;
-            LmApi.Instance.ChatAsync(coutTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
+            LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
              {
                  if (task.Exception != null)
                  {
@@ -112,6 +112,11 @@ namespace MyChatDB
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chatBtn_Click(object sender, EventArgs e)
         {
 
         }
