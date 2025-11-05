@@ -1,6 +1,6 @@
 ﻿namespace MyChatDB
 {
-    partial class ConsoleWindow
+    partial class ChatWindow
     {
         /// <summary>
         /// Required designer variable.

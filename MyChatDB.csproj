@@ -87,6 +87,12 @@
     <Compile Include="src\iron_python\engine\Engine.cs" />
     <Compile Include="src\iron_python\engine\IResultHandler.cs" />
     <Compile Include="src\iron_python\engine\ResultObject.cs" />
+    <Compile Include="src\windows\chat\ChatWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\windows\chat\ChatWindow.Designer.cs">
+      <DependentUpon>ChatWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\windows\console\ConsoleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="src\windows\chat\ChatWindow.resx">
+      <DependentUpon>ChatWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\windows\console\ConsoleWindow.resx">
       <DependentUpon>ConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
