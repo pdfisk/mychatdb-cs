@@ -1,6 +1,6 @@
 ﻿namespace MyChatDB
 {
-    partial class ConsoleWindow
+    partial class ChatConsoleWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatConsoleWindow));
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
-            this.pythonBtn = new System.Windows.Forms.ToolStripButton();
             this.chatBtn = new System.Windows.Forms.ToolStripButton();
             this.modelsBtn = new System.Windows.Forms.ToolStripButton();
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +47,6 @@
             // 
             this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pythonBtn,
             this.chatBtn,
             this.modelsBtn,
             this.clearBtn});
@@ -58,24 +56,14 @@
             this.transcriptToolStrip.TabIndex = 0;
             this.transcriptToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.transcriptToolStrip_ItemClicked);
             // 
-            // pythonBtn
-            // 
-            this.pythonBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.pythonBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pythonBtn.Name = "pythonBtn";
-            this.pythonBtn.Size = new System.Drawing.Size(49, 22);
-            this.pythonBtn.Text = "Python";
-            this.pythonBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.pythonBtn.Click += new System.EventHandler(this.python_btn_clicked);
-            // 
             // chatBtn
             // 
             this.chatBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.chatBtn.Image = ((System.Drawing.Image)(resources.GetObject("chatBtn.Image")));
             this.chatBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.chatBtn.Name = "chatBtn";
-            this.chatBtn.Size = new System.Drawing.Size(36, 22);
-            this.chatBtn.Text = "Chat";
+            this.chatBtn.Size = new System.Drawing.Size(37, 22);
+            this.chatBtn.Text = "Send";
             this.chatBtn.Click += new System.EventHandler(this.chatBtn_Click);
             // 
             // modelsBtn
@@ -142,15 +130,15 @@
             this.cinTB.TabIndex = 0;
             this.cinTB.WordWrap = false;
             // 
-            // ConsoleWindow
+            // ChatConsoleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 450);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.transcriptToolStrip);
-            this.Name = "ConsoleWindow";
-            this.Text = "Console";
+            this.Name = "ChatConsoleWindow";
+            this.Text = "Chat Console";
             this.Load += new System.EventHandler(this.Transcript_Load);
             this.transcriptToolStrip.ResumeLayout(false);
             this.transcriptToolStrip.PerformLayout();
@@ -170,7 +158,6 @@
         private System.Windows.Forms.ToolStrip transcriptToolStrip;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox cinTB;
-        private System.Windows.Forms.ToolStripButton pythonBtn;
         private System.Windows.Forms.ToolStripButton chatBtn;
         private System.Windows.Forms.ToolStripButton modelsBtn;
         private System.Windows.Forms.ToolStripButton clearBtn;

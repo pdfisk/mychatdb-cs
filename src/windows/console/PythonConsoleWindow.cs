@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace MyChatDB
 {
-    public partial class ConsoleWindow : Form, IResultHandler
+    public partial class PythonConsoleWindow : Form, IResultHandler
     {
         public Engine engine;
-        public ConsoleWindow()
+        public PythonConsoleWindow()
         {
             InitializeComponent();
             this.engine = Engine.GetInstance(this);

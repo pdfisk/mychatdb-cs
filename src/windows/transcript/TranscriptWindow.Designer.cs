@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranscriptWindow));
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
-            this.transcriptTextBox = new System.Windows.Forms.TextBox();
+            this.pythonConsoleBtn = new System.Windows.Forms.ToolStripButton();
             this.consoleBtn = new System.Windows.Forms.ToolStripButton();
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
+            this.transcriptTextBox = new System.Windows.Forms.TextBox();
             this.transcriptToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,12 +41,43 @@
             // 
             this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pythonConsoleBtn,
             this.consoleBtn,
             this.clearBtn});
             this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
             this.transcriptToolStrip.TabIndex = 0;
+            // 
+            // pythonConsoleBtn
+            // 
+            this.pythonConsoleBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.pythonConsoleBtn.Image = ((System.Drawing.Image)(resources.GetObject("pythonConsoleBtn.Image")));
+            this.pythonConsoleBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pythonConsoleBtn.Name = "pythonConsoleBtn";
+            this.pythonConsoleBtn.Size = new System.Drawing.Size(95, 22);
+            this.pythonConsoleBtn.Text = "Python Console";
+            this.pythonConsoleBtn.Click += new System.EventHandler(this.python_console_btn_clicked);
+            // 
+            // consoleBtn
+            // 
+            this.consoleBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.consoleBtn.Image = ((System.Drawing.Image)(resources.GetObject("consoleBtn.Image")));
+            this.consoleBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.consoleBtn.Name = "chatConsoleBtn";
+            this.consoleBtn.Size = new System.Drawing.Size(82, 22);
+            this.consoleBtn.Text = "Chat Console";
+            this.consoleBtn.Click += new System.EventHandler(this.chat_console_btn_clicked);
+            // 
+            // clearBtn
+            // 
+            this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearBtn.Image")));
+            this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(38, 22);
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // transcriptTextBox
             // 
@@ -58,26 +90,6 @@
             this.transcriptTextBox.Size = new System.Drawing.Size(477, 425);
             this.transcriptTextBox.TabIndex = 2;
             this.transcriptTextBox.TextChanged += new System.EventHandler(this.transcriptTextBox_TextChanged);
-            // 
-            // consoleBtn
-            // 
-            this.consoleBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.consoleBtn.Image = ((System.Drawing.Image)(resources.GetObject("consoleBtn.Image")));
-            this.consoleBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.consoleBtn.Name = "consoleBtn";
-            this.consoleBtn.Size = new System.Drawing.Size(54, 22);
-            this.consoleBtn.Text = "Console";
-            this.consoleBtn.Click += new System.EventHandler(this.consoleBtn_Click);
-            // 
-            // clearBtn
-            // 
-            this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearBtn.Image")));
-            this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(38, 22);
-            this.clearBtn.Text = "Clear";
-            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // TranscriptWindow
             // 
@@ -102,6 +114,7 @@
         private System.Windows.Forms.TextBox transcriptTextBox;
         private System.Windows.Forms.ToolStripButton consoleBtn;
         private System.Windows.Forms.ToolStripButton clearBtn;
+        private System.Windows.Forms.ToolStripButton pythonConsoleBtn;
     }
 }
 

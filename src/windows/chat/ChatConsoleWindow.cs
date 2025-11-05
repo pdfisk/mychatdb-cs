@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace MyChatDB
 {
-    public partial class ChatWindow : Form, IResultHandler
+    public partial class ChatConsoleWindow : Form, IResultHandler
     {
         public Engine engine;
-        public ChatWindow()
+        public ChatConsoleWindow()
         {
             InitializeComponent();
             this.engine = Engine.GetInstance(this);
@@ -102,7 +102,7 @@ namespace MyChatDB
 
         private void modelsBtn_Click(object sender, EventArgs e)
         {
-            LmApi.Instance.GetModels(TranscriptWindow.GetInstance());
+            LmApi.Instance.GetModels(this);
 
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace MyChatDB
 {
-    partial class ChatWindow
+    partial class PythonConsoleWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PythonConsoleWindow));
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
             this.pythonBtn = new System.Windows.Forms.ToolStripButton();
-            this.chatBtn = new System.Windows.Forms.ToolStripButton();
-            this.modelsBtn = new System.Windows.Forms.ToolStripButton();
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.coutTB = new System.Windows.Forms.TextBox();
@@ -49,8 +47,6 @@
             this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pythonBtn,
-            this.chatBtn,
-            this.modelsBtn,
             this.clearBtn});
             this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
             this.transcriptToolStrip.Name = "transcriptToolStrip";
@@ -63,30 +59,10 @@
             this.pythonBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.pythonBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pythonBtn.Name = "pythonBtn";
-            this.pythonBtn.Size = new System.Drawing.Size(49, 22);
-            this.pythonBtn.Text = "Python";
+            this.pythonBtn.Size = new System.Drawing.Size(32, 22);
+            this.pythonBtn.Text = "Run";
             this.pythonBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.pythonBtn.Click += new System.EventHandler(this.python_btn_clicked);
-            // 
-            // chatBtn
-            // 
-            this.chatBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.chatBtn.Image = ((System.Drawing.Image)(resources.GetObject("chatBtn.Image")));
-            this.chatBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.chatBtn.Name = "chatBtn";
-            this.chatBtn.Size = new System.Drawing.Size(36, 22);
-            this.chatBtn.Text = "Chat";
-            this.chatBtn.Click += new System.EventHandler(this.chatBtn_Click);
-            // 
-            // modelsBtn
-            // 
-            this.modelsBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.modelsBtn.Image = ((System.Drawing.Image)(resources.GetObject("modelsBtn.Image")));
-            this.modelsBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.modelsBtn.Name = "modelsBtn";
-            this.modelsBtn.Size = new System.Drawing.Size(50, 22);
-            this.modelsBtn.Text = "Models";
-            this.modelsBtn.Click += new System.EventHandler(this.modelsBtn_Click);
             // 
             // clearBtn
             // 
@@ -142,15 +118,15 @@
             this.cinTB.TabIndex = 0;
             this.cinTB.WordWrap = false;
             // 
-            // ConsoleWindow
+            // PythonConsoleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 450);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.transcriptToolStrip);
-            this.Name = "ConsoleWindow";
-            this.Text = "Console";
+            this.Name = "PythonConsoleWindow";
+            this.Text = "Python Console";
             this.Load += new System.EventHandler(this.Transcript_Load);
             this.transcriptToolStrip.ResumeLayout(false);
             this.transcriptToolStrip.PerformLayout();
@@ -171,8 +147,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox cinTB;
         private System.Windows.Forms.ToolStripButton pythonBtn;
-        private System.Windows.Forms.ToolStripButton chatBtn;
-        private System.Windows.Forms.ToolStripButton modelsBtn;
         private System.Windows.Forms.ToolStripButton clearBtn;
         private System.Windows.Forms.TextBox coutTB;
     }

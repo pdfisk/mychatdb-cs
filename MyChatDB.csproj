@@ -87,17 +87,17 @@
     <Compile Include="src\iron_python\engine\Engine.cs" />
     <Compile Include="src\iron_python\engine\IResultHandler.cs" />
     <Compile Include="src\iron_python\engine\ResultObject.cs" />
-    <Compile Include="src\windows\chat\ChatWindow.cs">
+    <Compile Include="src\windows\chat\ChatConsoleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\windows\chat\ChatWindow.Designer.cs">
-      <DependentUpon>ChatWindow.cs</DependentUpon>
+    <Compile Include="src\windows\chat\ChatConsoleWindow.Designer.cs">
+      <DependentUpon>ChatConsoleWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\windows\console\ConsoleWindow.cs">
+    <Compile Include="src\windows\console\PythonConsoleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\windows\console\ConsoleWindow.Designer.cs">
-      <DependentUpon>ConsoleWindow.cs</DependentUpon>
+    <Compile Include="src\windows\console\PythonConsoleWindow.Designer.cs">
+      <DependentUpon>PythonConsoleWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="src\windows\transcript\TranscriptWindow.cs">
       <SubType>Form</SubType>
@@ -116,11 +116,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\windows\chat\ChatWindow.resx">
-      <DependentUpon>ChatWindow.cs</DependentUpon>
+    <EmbeddedResource Include="src\windows\chat\ChatConsoleWindow.resx">
+      <DependentUpon>ChatConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\windows\console\ConsoleWindow.resx">
-      <DependentUpon>ConsoleWindow.cs</DependentUpon>
+    <EmbeddedResource Include="src\windows\console\PythonConsoleWindow.resx">
+      <DependentUpon>PythonConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\windows\transcript\TranscriptWindow.resx">
       <DependentUpon>TranscriptWindow.cs</DependentUpon>

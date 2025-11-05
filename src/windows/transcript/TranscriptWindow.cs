@@ -44,11 +44,16 @@ namespace MyChatDB
         {
             ClearText();
         }
-
-        private async void console_btn_clicked(object sender, EventArgs e)
+        private async void chat_console_btn_clicked(object sender, EventArgs e)
         {
-            PrintLn_("Open Console Window");
-            new ConsoleWindow().Show();
+            PrintLn_("Open Chat Console Window");
+            new ChatConsoleWindow().Show();
+        }
+
+        private async void python_console_btn_clicked(object sender, EventArgs e)
+        {
+            PrintLn_("Open Python Console Window");
+            new PythonConsoleWindow().Show();
         }
 
         public void AppendText(string text)
@@ -110,8 +115,8 @@ namespace MyChatDB
 
         private void consoleBtn_Click(object sender, EventArgs e)
         {
-            PrintLn_("Open Console Window");
-            new ConsoleWindow().Show();
+            PrintLn_("Open Python Console Window");
+            new PythonConsoleWindow().Show();
         }
     }
 
