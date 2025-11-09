@@ -1,5 +1,4 @@
-﻿using api;
-using MyChatDB.api;
+﻿using MyChatDB.api;
 using MyChatDB.iron_python.engine;
 using System;
 using System.Windows.Forms;
@@ -82,7 +81,7 @@ namespace MyChatDB
 
         private void modelsBtn_Click(object sender, EventArgs e)
         {
-            LmApi.Instance.GetModels(this);
+            //LmApi.Instance.GetModels(this);
 
         }
 
@@ -96,26 +95,26 @@ namespace MyChatDB
 
         }
 
-        private void chatBtn_Click(object sender, EventArgs e)
-        {
-            PrintLn("Calling LLM...");
-            var startTime = DateTime.Now;
-            LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
-            {
-                if (task.Exception != null)
-                {
-                    PrintLn("Error: " + task.Exception.InnerException.Message);
-                }
-                else
-                {
-                    var endTime = DateTime.Now;
-                    var seconds = Math.Round((endTime - startTime).TotalSeconds, 2);
-                    PrintLn($"Completed in {seconds} seconds.");
-                    PrintLn("Response: " + task.Result.Trim());
-                }
-            });
+        //private void chatBtn_Click(object sender, EventArgs e)
+        //{
+        //    PrintLn("Calling LLM...");
+        //    var startTime = DateTime.Now;
+        //    LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
+        //    {
+        //        if (task.Exception != null)
+        //        {
+        //            PrintLn("Error: " + task.Exception.InnerException.Message);
+        //        }
+        //        else
+        //        {
+        //            var endTime = DateTime.Now;
+        //            var seconds = Math.Round((endTime - startTime).TotalSeconds, 2);
+        //            PrintLn($"Completed in {seconds} seconds.");
+        //            PrintLn("Response: " + task.Result.Trim());
+        //        }
+        //    });
 
-        }
+        //}
     }
 
 }

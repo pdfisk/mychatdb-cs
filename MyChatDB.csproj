@@ -121,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\api\OpanAIChatService.cs" />
-    <Compile Include="src\api\lmapi.cs" />
     <Compile Include="src\iron_python\engine\Engine.cs" />
     <Compile Include="src\iron_python\engine\IResultHandler.cs" />
     <Compile Include="src\iron_python\engine\ResultObject.cs" />

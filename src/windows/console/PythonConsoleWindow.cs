@@ -1,5 +1,4 @@
-﻿using api;
-using MyChatDB.iron_python.engine;
+﻿using MyChatDB.iron_python.engine;
 using System;
 using System.Windows.Forms;
 
@@ -84,25 +83,25 @@ namespace MyChatDB
         {
             TranscriptPrintLn("Calling LLM...");
             var startTime = DateTime.Now;
-            LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
-             {
-                 if (task.Exception != null)
-                 {
-                     TranscriptWindow.GetInstance().PrintLn("Error: " + task.Exception.InnerException.Message);
-                 }
-                 else
-                 {
-                     var endTime = DateTime.Now;
-                     var seconds = Math.Round((endTime - startTime).TotalSeconds, 2);
-                     TranscriptPrintLn($"Completed in {seconds} seconds.");
-                     TranscriptWindow.GetInstance().PrintLn("Response: " + task.Result);
-                 }
-             });
+            //LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
+            // {
+            //     if (task.Exception != null)
+            //     {
+            //         TranscriptWindow.GetInstance().PrintLn("Error: " + task.Exception.InnerException.Message);
+            //     }
+            //     else
+            //     {
+            //         var endTime = DateTime.Now;
+            //         var seconds = Math.Round((endTime - startTime).TotalSeconds, 2);
+            //         TranscriptPrintLn($"Completed in {seconds} seconds.");
+            //         TranscriptWindow.GetInstance().PrintLn("Response: " + task.Result);
+            //     }
+            // });
         }
 
         private void modelsBtn_Click(object sender, EventArgs e)
         {
-            LmApi.Instance.GetModels(TranscriptWindow.GetInstance());
+            //LmApi.Instance.GetModels(TranscriptWindow.GetInstance());
 
         }
 
