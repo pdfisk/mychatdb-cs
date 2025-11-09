@@ -1,4 +1,5 @@
 ﻿using api;
+using MyChatDB.api;
 using MyChatDB.iron_python.engine;
 using System;
 using System.Windows.Forms;
@@ -8,10 +9,10 @@ namespace MyChatDB
     public partial class ChatConsoleWindow : Form, IResultHandler
     {
         public Engine engine;
+        OpenAIChatService client =new OpenAIChatService();
         public ChatConsoleWindow()
         {
             InitializeComponent();
-            this.engine = Engine.GetInstance(this);
         }
 
         private void Transcript_Load(object sender, EventArgs e)
@@ -27,12 +28,6 @@ namespace MyChatDB
         private void clear_btn_clicked(object sender, EventArgs e)
         {
             ClearText();
-        }
-
-        private async void python_btn_clicked(object sender, EventArgs e)
-        {
-            var code = cinTB.Text;
-            engine.RunScript(code, this);
         }
 
         public void AppendText(string text)
@@ -80,24 +75,9 @@ namespace MyChatDB
             TranscriptWindow.GetInstance().PrintLn(text);
         }
 
-        private void chatBtn_MouseClick(object sender, MouseEventArgs e)
+        private void chatBtn_Click(object sender, MouseEventArgs e)
         {
-            TranscriptPrintLn("Calling LLM...");
-            var startTime = DateTime.Now;
-            LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
-             {
-                 if (task.Exception != null)
-                 {
-                     TranscriptWindow.GetInstance().PrintLn("Error: " + task.Exception.InnerException.Message);
-                 }
-                 else
-                 {
-                     var endTime = DateTime.Now;
-                     var seconds = Math.Round((endTime - startTime).TotalSeconds, 2);
-                     TranscriptPrintLn($"Completed in {seconds} seconds.");
-                     TranscriptWindow.GetInstance().PrintLn("Response: " + task.Result);
-                 }
-             });
+            client.sendMessage(cinTB.Text);
         }
 
         private void modelsBtn_Click(object sender, EventArgs e)
@@ -118,6 +98,22 @@ namespace MyChatDB
 
         private void chatBtn_Click(object sender, EventArgs e)
         {
+            PrintLn("Calling LLM...");
+            var startTime = DateTime.Now;
+            LmApi.Instance.ChatAsync(cinTB.Text, "qwen/qwen3-coder-30b").ContinueWith(task =>
+            {
+                if (task.Exception != null)
+                {
+                    PrintLn("Error: " + task.Exception.InnerException.Message);
+                }
+                else
+                {
+                    var endTime = DateTime.Now;
+                    var seconds = Math.Round((endTime - startTime).TotalSeconds, 2);
+                    PrintLn($"Completed in {seconds} seconds.");
+                    PrintLn("Response: " + task.Result.Trim());
+                }
+            });
 
         }
     }
