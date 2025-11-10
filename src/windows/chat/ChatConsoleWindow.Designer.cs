@@ -64,7 +64,7 @@
             this.chatBtn.Name = "chatBtn";
             this.chatBtn.Size = new System.Drawing.Size(37, 22);
             this.chatBtn.Text = "Send";
-            //this.chatBtn.Click += new System.EventHandler(this.chatBtn_Click);
+            this.chatBtn.Click += new System.EventHandler(this.chatBtn_Click);
             // 
             // modelsBtn
             // 

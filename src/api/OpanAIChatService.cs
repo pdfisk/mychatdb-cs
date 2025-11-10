@@ -16,7 +16,7 @@ namespace MyChatDB.api
             string ModelName = "qwen/qwen3-coder-30b";
             ChatClient client = new ChatClient(
             model: ModelName,
-            credential: new ApiKeyCredential(Environment.GetEnvironmentVariable("OPENAI_API_KEY")),
+            credential: new ApiKeyCredential("abc_xyz"),
             options: new OpenAIClientOptions() { Endpoint = new Uri(BaseUrl) });
 
 
