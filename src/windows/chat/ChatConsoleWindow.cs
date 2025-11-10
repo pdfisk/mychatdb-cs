@@ -80,13 +80,12 @@ namespace MyChatDB
             var startTime = DateTime.Now;
             var prompt = cinTB.Text;
             client.sendMessage(prompt, this);
-
         }
 
         private void modelsBtn_Click(object sender, EventArgs e)
         {
-            //LmApi.Instance.GetModels(this);
-
+            PrintLn("Fetching models...");
+            client.getModels(this);
         }
 
         private void transcriptToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
