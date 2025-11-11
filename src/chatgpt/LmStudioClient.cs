@@ -6,7 +6,6 @@ using System;
 using System.ClientModel;
 using System.Collections.Generic;
 using System.Net.Http;
-using static IronPython.Modules._ast;
 
 namespace src.chatgpt
 {
@@ -20,27 +19,62 @@ namespace src.chatgpt
 
         public LMStudioClient()
         {
-            client = new OpenAIClient(new ApiKeyCredential(apiKey), new OpenAIClientOptions
+            chatClient=new ChatClient(model,new ApiKeyCredential(apiKey), new OpenAIClientOptions
             {
                 Endpoint = new Uri(baseUrl)
             });
-            chatClient = client.GetChatClient(model);
+        }
+
+        void PrintLn(IResultHandler handler, params object[] args)
+        {
+            if (handler == null) return;
+            var time_now =DateTime.Now;
+            var minutes = time_now.Minute.ToString("D2");
+            var seconds = time_now.Second.ToString("D2");
+            var text = string.Format("[{0}:{1}] ", minutes, seconds);
+            for (var i = 0; i < args.Length; i++)
+            {
+                text += args[i].ToString();
+                if (i < args.Length - 1)
+                    text += " ";
+            }
+            handler.PrintLn(text);
         }
 
         async public void sendMessage(string message, IResultHandler handler = null)
         {
+
+            PrintLn(handler, "sendMessage");
             var chatMessage = new UserChatMessage(message);
-            var response = await chatClient.CompleteChatAsync(chatMessage);
-            var result = response.Value.Content[0].Text;
+            string result = "unknown";
+            var chatMessages = new List<ChatMessage>
+            {
+                new UserChatMessage(message)
+            };
+            try
+            {
+                PrintLn(handler, "AWAIT");
+                var response = await chatClient.CompleteChatAsync(chatMessages);
+                PrintLn(handler, "RESPONSE", response.GetType());
+                result = response.Value.Content[0].Text;
+                PrintLn(handler, "RESULT", result);
+            }
+            catch (Exception ex)
+            {
+                result = $"Error: {ex.Message}";
+                PrintLn(handler, "ERROR", result);
+                return;
+            }
             if (handler != null)
             {
-                ResultObject resultObject = new ResultObject
-                (result, result, result
-                );
+                PrintLn(handler, "HandleResult");
+                ResultObject resultObject = new ResultObject(result, result, result);
                 handler.HandleResult(resultObject);
             }
             else
-                Console.WriteLine(response.Value.Content[0].Text);
+            {
+                Console.WriteLine(result);
+            }
         }
 
         async public void getModels(IResultHandler handler = null)

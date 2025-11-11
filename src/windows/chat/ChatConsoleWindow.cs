@@ -66,7 +66,8 @@ namespace MyChatDB
 
         public void HandleResult(ResultObject resultObject)
         {
-            PrintLn(resultObject._stdout);
+            PrintLn("HandleResult: " + resultObject == null ? "NULL" : "OBJECT");
+            //PrintLn(resultObject._stdout);
         }
 
         void TranscriptPrintLn(string text)
