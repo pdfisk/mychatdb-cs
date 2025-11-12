@@ -56,7 +56,6 @@
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
             this.transcriptToolStrip.TabIndex = 0;
-            this.transcriptToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.transcriptToolStrip_ItemClicked);
             // 
             // chatBtn
             // 
@@ -112,7 +111,6 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.cinTB);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(477, 425);
             this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.TabIndex = 1;

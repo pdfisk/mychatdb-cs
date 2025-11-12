@@ -70,11 +70,6 @@ namespace MyChatDB
             PrintLn(resultObject._stdout);
         }
 
-        void TranscriptPrintLn(string text)
-        {
-            TranscriptWindow.GetInstance().PrintLn(text);
-        }
-
         private void chatBtn_Click(object sender, EventArgs e)
         {
             var startTime = DateTime.Now;
@@ -86,11 +81,6 @@ namespace MyChatDB
         {
             PrintLn("Fetching models...");
             client.getModels(this);
-        }
-
-        private void transcriptToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
