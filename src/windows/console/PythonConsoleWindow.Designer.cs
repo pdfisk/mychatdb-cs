@@ -64,12 +64,12 @@
             this.pythonBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.pythonBtn.Click += new System.EventHandler(this.python_btn_clicked);
             // 
-            // clearBtn
+            // clearOutBtn
             // 
             this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearBtn.Image")));
+            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearOutBtn.Image")));
             this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Name = "clearOutBtn";
             this.clearBtn.Size = new System.Drawing.Size(38, 22);
             this.clearBtn.Text = "Clear";
             this.clearBtn.Click += new System.EventHandler(this.clear_btn_clicked);

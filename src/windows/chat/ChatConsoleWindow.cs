@@ -19,14 +19,9 @@ namespace MyChatDB
 
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        private void clear_out_btn_clicked(object sender, EventArgs e)
         {
-
-        }
-
-        private void clear_btn_clicked(object sender, EventArgs e)
-        {
-            ClearText();
+            ClearTextOut();
         }
 
         public void AppendText(string text)
@@ -41,11 +36,23 @@ namespace MyChatDB
             }
         }
 
-        public void ClearText()
+        public void ClearTextIn()
+        {
+            if (cinTB.InvokeRequired)
+            {
+                cinTB.Invoke(new Action(ClearTextIn));
+            }
+            else
+            {
+                cinTB.Clear();
+            }
+        }
+
+        public void ClearTextOut()
         {
             if (coutTB.InvokeRequired)
             {
-                coutTB.Invoke(new Action(ClearText));
+                coutTB.Invoke(new Action(ClearTextOut));
             }
             else
             {
@@ -56,12 +63,6 @@ namespace MyChatDB
         public void PrintLn(string text)
         {
             AppendText(text + Environment.NewLine);
-        }
-
-        public void SetText(string text)
-        {
-            ClearText();
-            AppendText(text);
         }
 
         public void HandleResult(ResultObject resultObject)
@@ -97,6 +98,10 @@ namespace MyChatDB
 
         }
 
+        private void clear_in_btn_click(object sender, EventArgs e)
+        {
+            ClearTextIn();
+        }
     }
 }
 
