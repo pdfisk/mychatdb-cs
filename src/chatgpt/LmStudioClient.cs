@@ -19,7 +19,7 @@ namespace src.chatgpt
 
         public LMStudioClient()
         {
-            chatClient=new ChatClient(model,new ApiKeyCredential(apiKey), new OpenAIClientOptions
+            chatClient = new ChatClient(model, new ApiKeyCredential(apiKey), new OpenAIClientOptions
             {
                 Endpoint = new Uri(baseUrl)
             });
@@ -28,7 +28,7 @@ namespace src.chatgpt
         void PrintLn(IResultHandler handler, params object[] args)
         {
             if (handler == null) return;
-            var time_now =DateTime.Now;
+            var time_now = DateTime.Now;
             var minutes = time_now.Minute.ToString("D2");
             var seconds = time_now.Second.ToString("D2");
             var text = string.Format("[{0}:{1}] ", minutes, seconds);
@@ -44,7 +44,7 @@ namespace src.chatgpt
         async public void sendMessage(string message, IResultHandler handler = null)
         {
 
-            PrintLn(handler, "sendMessage");
+            PrintLn(handler, "sending...");
             var chatMessage = new UserChatMessage(message);
             string result = "unknown";
             var chatMessages = new List<ChatMessage>
@@ -53,11 +53,8 @@ namespace src.chatgpt
             };
             try
             {
-                PrintLn(handler, "AWAIT");
                 var response = await chatClient.CompleteChatAsync(chatMessages);
-                PrintLn(handler, "RESPONSE", response.GetType());
                 result = response.Value.Content[0].Text;
-                PrintLn(handler, "RESULT", result);
             }
             catch (Exception ex)
             {
@@ -67,9 +64,9 @@ namespace src.chatgpt
             }
             if (handler != null)
             {
-                PrintLn(handler, "HandleResult");
-                ResultObject resultObject = new ResultObject(result, result, result);
-                handler.HandleResult(resultObject);
+                //ResultObject resultObject = new ResultObject(result, result, result);
+                //handler.HandleResult(resultObject);
+                PrintLn(handler, result);
             }
             else
             {

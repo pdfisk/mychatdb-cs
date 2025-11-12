@@ -66,8 +66,7 @@ namespace MyChatDB
 
         public void HandleResult(ResultObject resultObject)
         {
-            PrintLn("HandleResult: " + resultObject == null ? "NULL" : "OBJECT");
-            //PrintLn(resultObject._stdout);
+            PrintLn(resultObject._stdout);
         }
 
         void TranscriptPrintLn(string text)
@@ -77,7 +76,6 @@ namespace MyChatDB
 
         private void chatBtn_Click(object sender, EventArgs e)
         {
-            PrintLn("Calling LLM...");
             var startTime = DateTime.Now;
             var prompt = cinTB.Text;
             client.sendMessage(prompt, this);
