@@ -36,6 +36,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.coutTB = new System.Windows.Forms.TextBox();
             this.cinTB = new System.Windows.Forms.TextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.wrapOutBtn = new System.Windows.Forms.ToolStripButton();
             this.transcriptToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -48,8 +51,11 @@
             this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pythonBtn,
+            this.toolStripSeparator1,
             this.clearOutBtn,
-            this.clearInBtn});
+            this.clearInBtn,
+            this.toolStripSeparator2,
+            this.wrapOutBtn});
             this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
@@ -127,6 +133,26 @@
             this.cinTB.TabIndex = 0;
             this.cinTB.WordWrap = false;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // wrapOutBtn
+            // 
+            this.wrapOutBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.wrapOutBtn.Image = ((System.Drawing.Image)(resources.GetObject("wrapOutBtn.Image")));
+            this.wrapOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.wrapOutBtn.Name = "wrapOutBtn";
+            this.wrapOutBtn.Size = new System.Drawing.Size(23, 22);
+            this.wrapOutBtn.Click += new System.EventHandler(this.wrapOutBtn_Click);
+            this.wrapOutBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.wrapOutBtn_Paint);
+            // 
             // PythonConsoleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +185,9 @@
         private System.Windows.Forms.ToolStripButton clearOutBtn;
         private System.Windows.Forms.TextBox coutTB;
         private System.Windows.Forms.ToolStripButton clearInBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton wrapOutBtn;
     }
 }
 

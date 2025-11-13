@@ -7,6 +7,9 @@ namespace MyChatDB
     public partial class PythonConsoleWindow : Form, IResultHandler
     {
         public Engine engine;
+        string wrapOutput = "Wrap Output";
+        string unwrapOutput = "Unwrap Output";
+
         public PythonConsoleWindow()
         {
             InitializeComponent();
@@ -103,6 +106,18 @@ namespace MyChatDB
         private void clearInBtn_Click(object sender, EventArgs e)
         {
             ClearTextIn();
+        }
+
+        private void wrapOutBtn_Paint(object sender, PaintEventArgs e)
+        {
+            if (wrapOutBtn.Text=="")
+                wrapOutBtn.Text = coutTB.WordWrap ? "Unwrap Output" : "Wrap Output";
+        }
+
+        private void wrapOutBtn_Click(object sender, EventArgs e)
+        {
+            coutTB.WordWrap = !coutTB.WordWrap;
+            wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
         }
     }
 
