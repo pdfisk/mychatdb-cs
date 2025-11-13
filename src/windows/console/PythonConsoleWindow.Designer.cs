@@ -31,7 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PythonConsoleWindow));
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
             this.pythonBtn = new System.Windows.Forms.ToolStripButton();
-            this.clearBtn = new System.Windows.Forms.ToolStripButton();
+            this.clearOutBtn = new System.Windows.Forms.ToolStripButton();
+            this.clearInBtn = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.coutTB = new System.Windows.Forms.TextBox();
             this.cinTB = new System.Windows.Forms.TextBox();
@@ -47,12 +48,12 @@
             this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pythonBtn,
-            this.clearBtn});
+            this.clearOutBtn,
+            this.clearInBtn});
             this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
             this.transcriptToolStrip.TabIndex = 0;
-            this.transcriptToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.transcriptToolStrip_ItemClicked);
             // 
             // pythonBtn
             // 
@@ -66,13 +67,22 @@
             // 
             // clearOutBtn
             // 
-            this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearOutBtn.Image")));
-            this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.clearBtn.Name = "clearOutBtn";
-            this.clearBtn.Size = new System.Drawing.Size(38, 22);
-            this.clearBtn.Text = "Clear";
-            this.clearBtn.Click += new System.EventHandler(this.clear_btn_clicked);
+            this.clearOutBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.clearOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearOutBtn.Name = "clearOutBtn";
+            this.clearOutBtn.Size = new System.Drawing.Size(61, 22);
+            this.clearOutBtn.Text = "Clear Out";
+            this.clearOutBtn.Click += new System.EventHandler(this.clear_out_btn_clicked);
+            // 
+            // clearInBtn
+            // 
+            this.clearInBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.clearInBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearInBtn.Image")));
+            this.clearInBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.clearInBtn.Name = "clearInBtn";
+            this.clearInBtn.Size = new System.Drawing.Size(51, 22);
+            this.clearInBtn.Text = "Clear In";
+            this.clearInBtn.Click += new System.EventHandler(this.clearInBtn_Click);
             // 
             // splitContainer1
             // 
@@ -88,7 +98,6 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.cinTB);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(477, 425);
             this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.TabIndex = 1;
@@ -147,8 +156,9 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox cinTB;
         private System.Windows.Forms.ToolStripButton pythonBtn;
-        private System.Windows.Forms.ToolStripButton clearBtn;
+        private System.Windows.Forms.ToolStripButton clearOutBtn;
         private System.Windows.Forms.TextBox coutTB;
+        private System.Windows.Forms.ToolStripButton clearInBtn;
     }
 }
 
