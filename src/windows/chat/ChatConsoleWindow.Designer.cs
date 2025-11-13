@@ -32,8 +32,11 @@
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
             this.chatBtn = new System.Windows.Forms.ToolStripButton();
             this.modelsBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.clearOutBtn = new System.Windows.Forms.ToolStripButton();
             this.clearInBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.wrapOutBtn = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.coutTB = new System.Windows.Forms.TextBox();
             this.cinTB = new System.Windows.Forms.TextBox();
@@ -50,8 +53,11 @@
             this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chatBtn,
             this.modelsBtn,
+            this.toolStripSeparator1,
             this.clearOutBtn,
-            this.clearInBtn});
+            this.clearInBtn,
+            this.toolStripSeparator2,
+            this.wrapOutBtn});
             this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
@@ -77,10 +83,14 @@
             this.modelsBtn.Text = "Models";
             this.modelsBtn.Click += new System.EventHandler(this.modelsBtn_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // clearOutBtn
             // 
             this.clearOutBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.clearOutBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearOutBtn.Image")));
             this.clearOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.clearOutBtn.Name = "clearOutBtn";
             this.clearOutBtn.Size = new System.Drawing.Size(61, 22);
@@ -96,6 +106,21 @@
             this.clearInBtn.Size = new System.Drawing.Size(51, 22);
             this.clearInBtn.Text = "Clear In";
             this.clearInBtn.Click += new System.EventHandler(this.clear_in_btn_click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // wrapOutBtn
+            // 
+            this.wrapOutBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.wrapOutBtn.Image = ((System.Drawing.Image)(resources.GetObject("wrapOutBtn.Image")));
+            this.wrapOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.wrapOutBtn.Name = "wrapOutBtn";
+            this.wrapOutBtn.Size = new System.Drawing.Size(23, 22);
+            this.wrapOutBtn.Click += new System.EventHandler(this.wrapOutBtn_Click);
+            this.wrapOutBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.wrapOutBtn_Paint);
             // 
             // splitContainer1
             // 
@@ -173,6 +198,9 @@
         private System.Windows.Forms.ToolStripButton clearOutBtn;
         private System.Windows.Forms.TextBox coutTB;
         private System.Windows.Forms.ToolStripButton clearInBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton wrapOutBtn;
     }
 }
 

@@ -9,6 +9,9 @@ namespace MyChatDB
     {
         public Engine engine;
         LMStudioClient client = new LMStudioClient();
+        string wrapOutput = "Wrap Output";
+        string unwrapOutput = "Unwrap Output";
+
         public ChatConsoleWindow()
         {
             InitializeComponent();
@@ -83,14 +86,21 @@ namespace MyChatDB
             client.getModels(this);
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void clear_in_btn_click(object sender, EventArgs e)
         {
             ClearTextIn();
+        }
+
+        private void wrapOutBtn_Click(object sender, EventArgs e)
+        {
+            coutTB.WordWrap = !coutTB.WordWrap;
+            wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
+        }
+
+        private void wrapOutBtn_Paint(object sender, PaintEventArgs e)
+        {
+            if (wrapOutBtn.Text == "")
+                wrapOutBtn.Text = wrapOutput;
         }
     }
 }
