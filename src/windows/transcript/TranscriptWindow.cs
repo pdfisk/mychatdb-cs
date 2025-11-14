@@ -1,6 +1,7 @@
 ﻿using MyChatDB.iron_python.engine;
 using System;
 using System.Windows.Forms;
+using static IronPython.Modules.PythonIterTools;
 
 namespace MyChatDB
 {
@@ -8,6 +9,8 @@ namespace MyChatDB
     {
         public Engine engine;
         static TranscriptWindow instance;
+        string wrapOutput = "Wrap Output";
+        string unwrapOutput = "Unwrap Output";
 
         public static TranscriptWindow GetInstance()
         {
@@ -35,15 +38,11 @@ namespace MyChatDB
 
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void clear_btn_clicked(object sender, EventArgs e)
         {
             ClearText();
         }
+
         private async void chat_console_btn_clicked(object sender, EventArgs e)
         {
             PrintLn_("Open Chat Console Window");
@@ -58,25 +57,25 @@ namespace MyChatDB
 
         public void AppendText(string text)
         {
-            if (transcriptTextBox.InvokeRequired)
+            if (coutTB.InvokeRequired)
             {
-                transcriptTextBox.Invoke(new Action<string>(AppendText), text);
+                coutTB.Invoke(new Action<string>(AppendText), text);
             }
             else
             {
-                transcriptTextBox.AppendText(text);
+                coutTB.AppendText(text);
             }
         }
 
         public void ClearText()
         {
-            if (transcriptTextBox.InvokeRequired)
+            if (coutTB.InvokeRequired)
             {
-                transcriptTextBox.Invoke(new Action(ClearText));
+                coutTB.Invoke(new Action(ClearText));
             }
             else
             {
-                transcriptTextBox.Clear();
+                coutTB.Clear();
             }
         }
 
@@ -96,20 +95,15 @@ namespace MyChatDB
             PrintLn_(resultObject._stdout);
         }
 
-        private void transcriptTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            if (transcriptTextBox.InvokeRequired)
+            if (coutTB.InvokeRequired)
             {
-                transcriptTextBox.Invoke(new Action(ClearText));
+                coutTB.Invoke(new Action(ClearText));
             }
             else
             {
-                transcriptTextBox.Clear();
+                coutTB.Clear();
             }
         }
 
@@ -117,6 +111,29 @@ namespace MyChatDB
         {
             PrintLn_("Open Python Console Window");
             new PythonConsoleWindow().Show();
+        }
+
+        private void wrapOutBtb_Paint(object sender, PaintEventArgs e)
+        {
+            wrapOutBtn.Text = wrapOutput;
+        }
+
+        private void wrapOutBtb_Click(object sender, EventArgs e)
+        {
+            coutTB.WordWrap = !coutTB.WordWrap;
+            wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
+        }
+
+        private void wrapOutBtn_Click(object sender, EventArgs e)
+        {
+            coutTB.WordWrap = !coutTB.WordWrap;
+            wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
+        }
+
+        private void wrapOutBtn_Paint(object sender, PaintEventArgs e)
+        {
+            if (wrapOutBtn.Text == "")
+                wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
         }
     }
 

@@ -110,8 +110,8 @@ namespace MyChatDB
 
         private void wrapOutBtn_Paint(object sender, PaintEventArgs e)
         {
-            if (wrapOutBtn.Text=="")
-                wrapOutBtn.Text = coutTB.WordWrap ? "Unwrap Output" : "Wrap Output";
+            if (wrapOutBtn.Text == "")
+                wrapOutBtn.Text = wrapOutput;
         }
 
         private void wrapOutBtn_Click(object sender, EventArgs e)

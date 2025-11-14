@@ -31,9 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranscriptWindow));
             this.transcriptToolStrip = new System.Windows.Forms.ToolStrip();
             this.pythonConsoleBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.consoleBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clearBtn = new System.Windows.Forms.ToolStripButton();
-            this.transcriptTextBox = new System.Windows.Forms.TextBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.wrapOutBtn = new System.Windows.Forms.ToolStripButton();
+            this.coutTB = new System.Windows.Forms.TextBox();
             this.transcriptToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,8 +46,12 @@
             this.transcriptToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.transcriptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pythonConsoleBtn,
+            this.toolStripSeparator1,
             this.consoleBtn,
-            this.clearBtn});
+            this.toolStripSeparator2,
+            this.clearBtn,
+            this.toolStripSeparator3,
+            this.wrapOutBtn});
             this.transcriptToolStrip.Location = new System.Drawing.Point(0, 425);
             this.transcriptToolStrip.Name = "transcriptToolStrip";
             this.transcriptToolStrip.Size = new System.Drawing.Size(477, 25);
@@ -59,44 +67,68 @@
             this.pythonConsoleBtn.Text = "Python Console";
             this.pythonConsoleBtn.Click += new System.EventHandler(this.python_console_btn_clicked);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // consoleBtn
             // 
             this.consoleBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.consoleBtn.Image = ((System.Drawing.Image)(resources.GetObject("consoleBtn.Image")));
             this.consoleBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.consoleBtn.Name = "chatConsoleBtn";
+            this.consoleBtn.Name = "consoleBtn";
             this.consoleBtn.Size = new System.Drawing.Size(82, 22);
             this.consoleBtn.Text = "Chat Console";
             this.consoleBtn.Click += new System.EventHandler(this.chat_console_btn_clicked);
             // 
-            // clearOutBtn
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // clearBtn
             // 
             this.clearBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.clearBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearOutBtn.Image")));
             this.clearBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.clearBtn.Name = "clearOutBtn";
+            this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(38, 22);
             this.clearBtn.Text = "Clear";
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
-            // transcriptTextBox
+            // toolStripSeparator3
             // 
-            this.transcriptTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transcriptTextBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transcriptTextBox.Location = new System.Drawing.Point(0, 0);
-            this.transcriptTextBox.Multiline = true;
-            this.transcriptTextBox.Name = "transcriptTextBox";
-            this.transcriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.transcriptTextBox.Size = new System.Drawing.Size(477, 425);
-            this.transcriptTextBox.TabIndex = 2;
-            this.transcriptTextBox.TextChanged += new System.EventHandler(this.transcriptTextBox_TextChanged);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // wrapOutBtn
+            // 
+            this.wrapOutBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.wrapOutBtn.Image = ((System.Drawing.Image)(resources.GetObject("wrapOutBtn.Image")));
+            this.wrapOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.wrapOutBtn.Name = "wrapOutBtn";
+            this.wrapOutBtn.Size = new System.Drawing.Size(23, 22);
+            this.wrapOutBtn.Click += new System.EventHandler(this.wrapOutBtn_Click);
+            this.wrapOutBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.wrapOutBtn_Paint);
+            // 
+            // coutTB
+            // 
+            this.coutTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coutTB.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coutTB.Location = new System.Drawing.Point(0, 0);
+            this.coutTB.Multiline = true;
+            this.coutTB.Name = "coutTB";
+            this.coutTB.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.coutTB.Size = new System.Drawing.Size(477, 425);
+            this.coutTB.TabIndex = 2;
+            this.coutTB.WordWrap = false;
             // 
             // TranscriptWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 450);
-            this.Controls.Add(this.transcriptTextBox);
+            this.Controls.Add(this.coutTB);
             this.Controls.Add(this.transcriptToolStrip);
             this.Name = "TranscriptWindow";
             this.Text = "Transcript";
@@ -111,10 +143,14 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip transcriptToolStrip;
-        private System.Windows.Forms.TextBox transcriptTextBox;
+        private System.Windows.Forms.TextBox coutTB;
         private System.Windows.Forms.ToolStripButton consoleBtn;
         private System.Windows.Forms.ToolStripButton clearBtn;
         private System.Windows.Forms.ToolStripButton pythonConsoleBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton wrapOutBtn;
     }
 }
 
