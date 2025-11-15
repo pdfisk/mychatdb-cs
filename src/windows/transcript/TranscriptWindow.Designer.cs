@@ -38,6 +38,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.wrapOutBtn = new System.Windows.Forms.ToolStripButton();
             this.coutTB = new System.Windows.Forms.TextBox();
+            this.inspectorBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.transcriptToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +50,8 @@
             this.pythonConsoleBtn,
             this.toolStripSeparator1,
             this.consoleBtn,
+            this.toolStripSeparator4,
+            this.inspectorBtn,
             this.toolStripSeparator2,
             this.clearBtn,
             this.toolStripSeparator3,
@@ -123,6 +127,21 @@
             this.coutTB.TabIndex = 2;
             this.coutTB.WordWrap = false;
             // 
+            // inspectorBtn
+            // 
+            this.inspectorBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.inspectorBtn.Image = ((System.Drawing.Image)(resources.GetObject("inspectorBtn.Image")));
+            this.inspectorBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.inspectorBtn.Name = "inspectorBtn";
+            this.inspectorBtn.Size = new System.Drawing.Size(60, 22);
+            this.inspectorBtn.Text = "Inspector";
+            this.inspectorBtn.Click += new System.EventHandler(this.inspectorBtn_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
             // TranscriptWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +170,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton wrapOutBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton inspectorBtn;
     }
 }
 

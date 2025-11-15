@@ -1,7 +1,7 @@
 ﻿using MyChatDB.iron_python.engine;
+using MyChatDB.src.windows.inspectors;
 using System;
 using System.Windows.Forms;
-using static IronPython.Modules.PythonIterTools;
 
 namespace MyChatDB
 {
@@ -134,6 +134,11 @@ namespace MyChatDB
         {
             if (wrapOutBtn.Text == "")
                 wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
+        }
+
+        private void inspectorBtn_Click(object sender, EventArgs e)
+        {
+            new ObjectInspector().Show();
         }
     }
 

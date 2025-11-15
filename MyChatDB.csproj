@@ -137,6 +137,27 @@
     <Compile Include="src\windows\console\PythonConsoleWindow.Designer.cs">
       <DependentUpon>PythonConsoleWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\windows\inspectors\BaseInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\windows\inspectors\BaseInspector.Designer.cs">
+      <DependentUpon>BaseInspector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\windows\inspectors\BooleanInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\windows\inspectors\ListInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\windows\inspectors\NumberInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\windows\inspectors\ObjectInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\windows\inspectors\TextInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="src\windows\transcript\TranscriptWindow.cs">
       <SubType>Form</SubType>
     </Compile>
