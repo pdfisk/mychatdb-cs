@@ -19,7 +19,7 @@ namespace MyChatDB.iron_python.engine
         private bool _running = false;
         private readonly ScriptEngine _engine;
         private readonly GlobalAccessor _globalAccessor;
-        private readonly Dictionary<string, object> _globalDictionary;
+        private readonly Dictionary<string, object> _sharedGlobalsDictionary;
         private readonly ScriptScope _scope;
         private readonly MemoryStream _stdoutStream;
         private readonly MemoryStream _stderrStream;
@@ -49,7 +49,7 @@ namespace MyChatDB.iron_python.engine
             _engine = Python.CreateEngine();
             _scope = _engine.CreateScope();
             _globalAccessor = new GlobalAccessor(_engine, _scope);
-            _globalDictionary = new Dictionary<string, object>();
+            _sharedGlobalsDictionary = new Dictionary<string, object>();
             _stdoutStream = new MemoryStream();
             _stderrStream = new MemoryStream();
             _stdoutWriter = new StreamWriter(_stdoutStream) { AutoFlush = true };
@@ -124,12 +124,12 @@ namespace MyChatDB.iron_python.engine
         public async void RunScript(string code, IResultHandler resultHandler = null)
         {
             if (_running) return;
-            PrintLn(string.Format("Starting script...{0}", _globalDictionary.Count));
             _running = true;
-            _globalAccessor.SetGlobal(SharedConstants.SHARED_VALUES, _globalDictionary);
+            _globalAccessor.SetGlobal(SharedConstants.SHARED_GLOBALS, _sharedGlobalsDictionary);
+            _globalAccessor.SetGlobal(SharedConstants.GUI_SERVICE, "GUI_SERVICE");
+            _globalAccessor.SetGlobal(SharedConstants.PARSER_SERVICE, "PARSER_SERVICE");
             Task<(object result, string stdout, string stderr)> task = ExecuteAsync(code);
             await task;
-            PrintLn(string.Format("Finished script...{0}", _globalDictionary.Count));
             _running = false;
             ResultObject resultObject = new ResultObject(task.Result.result, task.Result.stdout, task.Result.stderr);
             if (resultHandler != null)
