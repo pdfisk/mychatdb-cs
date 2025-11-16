@@ -122,8 +122,10 @@
   <ItemGroup>
     <Compile Include="src\api\OpanAIChatService.cs" />
     <Compile Include="src\chatgpt\LmStudioClient.cs" />
+    <Compile Include="src\constants\SharedConstants.cs" />
     <Compile Include="src\iron_python\engine\Engine.cs" />
     <Compile Include="src\iron_python\engine\IResultHandler.cs" />
+    <Compile Include="src\iron_python\engine\GlobalAccessor.cs" />
     <Compile Include="src\iron_python\engine\ResultObject.cs" />
     <Compile Include="src\windows\chat\ChatConsoleWindow.cs">
       <SubType>Form</SubType>
