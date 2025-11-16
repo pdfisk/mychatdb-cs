@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using MyChatDB.src.constants;
+using MyChatDB.src.services;
 
 namespace MyChatDB.iron_python.engine
 {
@@ -126,8 +127,8 @@ namespace MyChatDB.iron_python.engine
             if (_running) return;
             _running = true;
             _globalAccessor.SetGlobal(SharedConstants.SHARED_GLOBALS, _sharedGlobalsDictionary);
-            _globalAccessor.SetGlobal(SharedConstants.GUI_SERVICE, "GUI_SERVICE");
-            _globalAccessor.SetGlobal(SharedConstants.PARSER_SERVICE, "PARSER_SERVICE");
+            _globalAccessor.SetGlobal(SharedConstants.GUI_SERVICE, GuiService.getInstance());
+            _globalAccessor.SetGlobal(SharedConstants.PARSER_SERVICE, ParserService.getInstance());
             Task<(object result, string stdout, string stderr)> task = ExecuteAsync(code);
             await task;
             _running = false;
