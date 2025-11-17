@@ -1,6 +1,7 @@
 ﻿using MyChatDB.iron_python.engine;
 using MyChatDB.src.windows.inspectors;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MyChatDB
@@ -138,7 +139,8 @@ namespace MyChatDB
 
         private void inspectorBtn_Click(object sender, EventArgs e)
         {
-            new ObjectInspector().Show();
+            Dictionary<string, object> dictionary = Engine.GetInstance().GetVariables();
+            new ObjectInspector(dictionary).Show();
         }
     }
 

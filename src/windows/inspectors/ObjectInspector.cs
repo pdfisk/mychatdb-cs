@@ -1,6 +1,13 @@
-﻿namespace MyChatDB.src.windows.inspectors
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+
+namespace MyChatDB.src.windows.inspectors
 {
-    internal class ObjectInspector : BaseInspector
+    public partial class ObjectInspector : Form
     {
+        public ObjectInspector(Dictionary<string, object> dictionary)
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -1,6 +1,12 @@
-﻿namespace MyChatDB.src.windows.inspectors
+﻿using System.Windows.Forms;
+
+namespace MyChatDB.src.windows.inspectors
 {
-    internal class NumberInspector : BaseInspector
+    public partial class NumberInspector : Form
     {
+        public NumberInspector(object value)
+        {
+            InitializeComponent();
+        }
     }
 }

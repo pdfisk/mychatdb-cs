@@ -1,6 +1,12 @@
-﻿namespace MyChatDB.src.windows.inspectors
+﻿using System.Windows.Forms;
+
+namespace MyChatDB.src.windows.inspectors
 {
-    internal class BooleanInspector : BaseInspector
+    public partial class BooleanInspector : Form
     {
+        public BooleanInspector(bool b)
+        {
+            InitializeComponent();
+        }
     }
 }

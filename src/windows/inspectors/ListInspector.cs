@@ -1,6 +1,13 @@
-﻿namespace MyChatDB.src.windows.inspectors
+﻿using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
+
+namespace MyChatDB.src.windows.inspectors
 {
-    internal class ListInspector : BaseInspector
+    public partial class ListInspector : Form
     {
+        public ListInspector(JArray jArray)
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -168,6 +168,19 @@ namespace MyChatDB.iron_python.engine
            }, cancellationToken);
         }
 
+        public Dictionary<string,object> GetVariables()
+        {
+            var dict = new Dictionary<string, object>();
+            var enumerator = _scope.GetVariableNames().GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var name = enumerator.Current;
+                var value = _scope.GetVariable(name);
+                dict[name] = value;
+            }
+            return dict;
+        }
+
         /// <summary>
         /// Reads captured Python standard output.
         /// </summary>
