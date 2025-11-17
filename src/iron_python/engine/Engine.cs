@@ -127,7 +127,7 @@ namespace MyChatDB.iron_python.engine
             if (_running) return;
             _running = true;
             _globalAccessor.SetGlobal(SharedConstants.SHARED_GLOBALS, _sharedGlobalsDictionary);
-            Func<object> gui_service = () => { return "Hello World!"; };
+            Func<string, string, string> gui_service = (method, args) => { return GuiService.Perform(method, args); };
             _globalAccessor.SetGlobal(SharedConstants.GUI_SERVICE, gui_service);
             _globalAccessor.SetGlobal(SharedConstants.PARSER_SERVICE, ParserService.getInstance());
             Task<(object result, string stdout, string stderr)> task = ExecuteAsync(code);

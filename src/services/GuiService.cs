@@ -7,7 +7,7 @@ namespace MyChatDB.src.services
         static GuiService _instance;
         Engine _engine;
 
-         static GuiService getInstance()
+        static GuiService getInstance()
         {
             if (_instance == null)
             {
@@ -19,12 +19,24 @@ namespace MyChatDB.src.services
         GuiService()
         {
             _engine = Engine.GetInstance();
-        }   
+        }
 
-        static public void Inspect(object value)
+        public static string Perform(string command, string argument)
+        {
+            switch (command.ToLower())
+            {
+                case "inspect":
+                    return getInstance().Inspect(argument);
+                default:
+                    return "UNKNOWN COMMAND";
+            }
+        }
+
+        string Inspect(object value)
         {
             getInstance()._engine.PrintLn("INSPECT");
+            return "OK";
         }
- 
+
     }
 }
