@@ -33,7 +33,7 @@ namespace MyChatDB.iron_python.engine
             {
                 Instance = new Engine();
                 Instance._resultHandler = transcript;
-                Instance.LoadScript("lm_client.py");
+                Instance.LoadScript("init.py");
             }
             return Instance;
         }
@@ -69,8 +69,8 @@ namespace MyChatDB.iron_python.engine
             var fullPath = Path.Combine(scriptsPath, filePath);
             var exists = File.Exists(fullPath);
             Console.WriteLine($"Loading script from: {fullPath} {exists}");
-            //if (File.Exists(fullPath))
-            //    _engine.ExecuteFile(fullPath, _scope);
+            if (File.Exists(fullPath))
+                _engine.ExecuteFile(fullPath, _scope);
         }
 
         /// <summary>
