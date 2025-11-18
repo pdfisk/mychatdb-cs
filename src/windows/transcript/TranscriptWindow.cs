@@ -137,10 +137,30 @@ namespace MyChatDB
                 wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
         }
 
+        private void openObjectInspectorWindow(Dictionary<string, object> dictionary=null)
+        {
+           if (dictionary == null)
+                dictionary = Engine.GetInstance().GetVariables();
+            if (this.InvokeRequired)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    new ObjectInspector(dictionary).Show();
+                });
+            }
+            else
+                new ObjectInspector(dictionary).Show(); 
+        }
+
         private void inspectorBtn_Click(object sender, EventArgs e)
         {
-            Dictionary<string, object> dictionary = Engine.GetInstance().GetVariables();
-            new ObjectInspector(dictionary).Show();
+            PrintLn_("Open Object Inspector Window");
+            openObjectInspectorWindow();
+        }
+
+        public static void OpenObjectInspector(Dictionary<string, object> dictionary = null)
+        {
+           GetInstance().openObjectInspectorWindow(dictionary);
         }
     }
 

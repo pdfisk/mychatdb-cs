@@ -76,11 +76,7 @@ namespace MyChatDB.src.services
 
         void openObjectInspector(Dictionary<string, object> dict)
         {
-            Task.Run(() =>
-            {
-                var inspector = new ObjectInspector(dict);
-                inspector.Show();
-            });
+            TranscriptWindow.OpenObjectInspector(dict);
         }
 
     }
