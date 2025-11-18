@@ -1,4 +1,5 @@
 ﻿using MyChatDB.iron_python.engine;
+using MyChatDB.src.util;
 using MyChatDB.src.windows.inspectors;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -44,29 +45,20 @@ namespace MyChatDB.src.services
             switch (type.Name.ToLower())
             {
                 case "boolean":
-                    bool b = (bool)value;
-                    new BooleanInspector(b);
+                    openBooleanInspector((bool)value);
                     break;
                 case "int64":
-                    long l = (long)value;
-                    new NumberInspector(l);
-                    break;
                 case "double":
-                    double d = (double)value;
-                    new NumberInspector(d);
+                    openNumberInspector(value);
                     break;
                 case "jarray":
-                    JArray a = (JArray)value;
-                    new ListInspector(a);
+                    openListInspector((JArray)value);
                     break;
                 case "jobject":
-                    JObject o = (JObject)value;
-                    var dict = new Dictionary<string, object>();
-                    openObjectInspector(dict);
+                    openObjectInspector((JObject)value);
                     break;
                 case "string":
-                    string s = (string)value;
-                    new TextInspector(s);
+                    openTextInspector((string)value);
                     break;
                 default:
                     getInstance()._engine.PrintLn($"TYPE: {type.Name}");
@@ -74,9 +66,29 @@ namespace MyChatDB.src.services
             }
         }
 
-        void openObjectInspector(Dictionary<string, object> dict)
+        void openBooleanInspector(bool value)
         {
-            TranscriptWindow.OpenObjectInspector(dict);
+            TranscriptWindow.OpenBooleanInspector(value);
+        }
+
+        void openListInspector(JArray jArray)
+        {
+            TranscriptWindow.OpenListInspector(NormalizeJson.NormalizeJArray(jArray));
+        }
+
+        void openNumberInspector(object value)
+        {
+            TranscriptWindow.OpenNumberInspector(value);
+        }
+
+        void openObjectInspector(JObject jObject)
+        {
+            TranscriptWindow.OpenObjectInspector(NormalizeJson.NormalizeJObject(jObject));
+        }
+
+        void openTextInspector(string value)
+        {
+            TranscriptWindow.OpenTextInspector(value);
         }
 
     }
