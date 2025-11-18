@@ -13,7 +13,7 @@ namespace MyChatDB
         public PythonConsoleWindow()
         {
             InitializeComponent();
-            this.engine = Engine.GetInstance(this);
+            this.engine = Engine.GetInstance();
         }
 
         private void Transcript_Load(object sender, EventArgs e)

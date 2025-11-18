@@ -15,7 +15,7 @@ namespace MyChatDB.iron_python.engine
 {
     public class Engine
     {
-        static Engine Instance;
+        static Engine Instance=null;
         IResultHandler _resultHandler;
         private bool _running = false;
         private readonly ScriptEngine _engine;
@@ -27,12 +27,12 @@ namespace MyChatDB.iron_python.engine
         private readonly StreamWriter _stdoutWriter;
         private readonly StreamWriter _stderrWriter;
 
-        public static Engine GetInstance(IResultHandler transcript = null)
+        public static Engine GetInstance()
         {
-            if (transcript != null)
+            if (Instance == null)
             {
                 Instance = new Engine();
-                Instance._resultHandler = transcript;
+                Instance._resultHandler = TranscriptWindow.GetInstance(Instance);
                 Instance.LoadScript("init.py");
             }
             return Instance;

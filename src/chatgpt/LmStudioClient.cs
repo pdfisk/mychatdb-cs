@@ -14,7 +14,6 @@ namespace src.chatgpt
         string model = "qwen/qwen3-coder-30b";
         string baseUrl = "http://127.0.0.1:1234/v1";
         string apiKey = "not_needed_for_lmstudio";
-        OpenAIClient client;
         ChatClient chatClient;
 
         public LMStudioClient()

@@ -10,18 +10,20 @@ namespace MyChatDB
 {
     public partial class TranscriptWindow : Form, IResultHandler
     {
-        public Engine engine;
-        static TranscriptWindow instance;
-        string wrapOutput = "Wrap Output";
-        string unwrapOutput = "Unwrap Output";
+        public Engine _engine;
+        static TranscriptWindow _instance;
+        string _wrapOutput = "Wrap Output";
+        string _unwrapOutput = "Unwrap Output";
 
-        public static TranscriptWindow GetInstance()
+        public static TranscriptWindow GetInstance(Engine engine=null)
         {
-            if (instance == null || instance.IsDisposed)
+            if (_instance == null)
             {
-                instance = new TranscriptWindow();
+                _instance = new TranscriptWindow();
+                if (engine != null)
+                    _instance._engine = engine;
             }
-            return instance;
+            return _instance;
         }
 
         public void PrintLn(string text)
@@ -33,7 +35,6 @@ namespace MyChatDB
         TranscriptWindow()
         {
             InitializeComponent();
-            this.engine = Engine.GetInstance(this);
         }
 
         private void Transcript_Load(object sender, EventArgs e)
@@ -118,25 +119,25 @@ namespace MyChatDB
 
         private void wrapOutBtb_Paint(object sender, PaintEventArgs e)
         {
-            wrapOutBtn.Text = wrapOutput;
+            wrapOutBtn.Text = _wrapOutput;
         }
 
         private void wrapOutBtb_Click(object sender, EventArgs e)
         {
             coutTB.WordWrap = !coutTB.WordWrap;
-            wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
+            wrapOutBtn.Text = coutTB.WordWrap ? _unwrapOutput : _wrapOutput;
         }
 
         private void wrapOutBtn_Click(object sender, EventArgs e)
         {
             coutTB.WordWrap = !coutTB.WordWrap;
-            wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
+            wrapOutBtn.Text = coutTB.WordWrap ? _unwrapOutput : _wrapOutput;
         }
 
         private void wrapOutBtn_Paint(object sender, PaintEventArgs e)
         {
             if (wrapOutBtn.Text == "")
-                wrapOutBtn.Text = coutTB.WordWrap ? unwrapOutput : wrapOutput;
+                wrapOutBtn.Text = coutTB.WordWrap ? _unwrapOutput : _wrapOutput;
         }
 
         private void inspectorBtn_Click(object sender, EventArgs e)
