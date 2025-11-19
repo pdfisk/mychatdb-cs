@@ -202,6 +202,9 @@
     <EmbeddedResource Include="src\windows\inspectors\ObjectInspector.resx">
       <DependentUpon>ObjectInspector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\windows\inspectors\TextInspector.resx">
+      <DependentUpon>TextInspector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\windows\transcript\TranscriptWindow.resx">
       <DependentUpon>TranscriptWindow.cs</DependentUpon>
     </EmbeddedResource>
