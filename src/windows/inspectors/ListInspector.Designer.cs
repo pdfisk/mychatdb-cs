@@ -32,7 +32,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.refreshBtn = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -69,7 +69,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.listBox);
             // 
             // splitContainer1.Panel2
             // 
@@ -78,14 +78,14 @@
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 1;
             // 
-            // listBox1
+            // listBox
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(266, 425);
-            this.listBox1.TabIndex = 0;
+            this.listBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox.FormattingEnabled = true;
+            this.listBox.Location = new System.Drawing.Point(0, 0);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(266, 425);
+            this.listBox.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -125,7 +125,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton refreshBtn;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.TextBox textBox1;
     }
 }
