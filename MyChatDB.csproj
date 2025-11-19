@@ -196,6 +196,9 @@
     <EmbeddedResource Include="src\windows\console\PythonConsoleWindow.resx">
       <DependentUpon>PythonConsoleWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\windows\inspectors\ListInspector.resx">
+      <DependentUpon>ListInspector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\windows\inspectors\ObjectInspector.resx">
       <DependentUpon>ObjectInspector.cs</DependentUpon>
     </EmbeddedResource>
