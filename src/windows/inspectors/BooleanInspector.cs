@@ -7,6 +7,13 @@ namespace MyChatDB.src.windows.inspectors
         public BooleanInspector(bool b)
         {
             InitializeComponent();
+            if (b)             {
+                radioButtonTrue.Checked = true;
+            }
+            else
+            {
+                radioButtonFalse.Checked = true;
+            }
         }
     }
 }

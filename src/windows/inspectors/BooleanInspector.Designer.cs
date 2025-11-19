@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooleanInspector));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.saveBtn = new System.Windows.Forms.ToolStripButton();
-            this.trueBtn = new System.Windows.Forms.RadioButton();
+            this.radioButtonTrue = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonFalse = new System.Windows.Forms.RadioButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,21 +58,21 @@
             this.saveBtn.Size = new System.Drawing.Size(35, 22);
             this.saveBtn.Text = "Save";
             // 
-            // trueBtn
+            // radioButtonTrue
             // 
-            this.trueBtn.AutoSize = true;
-            this.trueBtn.Location = new System.Drawing.Point(30, 37);
-            this.trueBtn.Name = "trueBtn";
-            this.trueBtn.Size = new System.Drawing.Size(47, 17);
-            this.trueBtn.TabIndex = 1;
-            this.trueBtn.TabStop = true;
-            this.trueBtn.Text = "True";
-            this.trueBtn.UseVisualStyleBackColor = true;
+            this.radioButtonTrue.AutoSize = true;
+            this.radioButtonTrue.Location = new System.Drawing.Point(30, 37);
+            this.radioButtonTrue.Name = "radioButtonTrue";
+            this.radioButtonTrue.Size = new System.Drawing.Size(47, 17);
+            this.radioButtonTrue.TabIndex = 1;
+            this.radioButtonTrue.TabStop = true;
+            this.radioButtonTrue.Text = "True";
+            this.radioButtonTrue.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.trueBtn);
+            this.groupBox1.Controls.Add(this.radioButtonFalse);
+            this.groupBox1.Controls.Add(this.radioButtonTrue);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -80,16 +80,16 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // radioButton2
+            // radioButtonFalse
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(30, 77);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(50, 17);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "False";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonFalse.AutoSize = true;
+            this.radioButtonFalse.Location = new System.Drawing.Point(30, 77);
+            this.radioButtonFalse.Name = "radioButtonFalse";
+            this.radioButtonFalse.Size = new System.Drawing.Size(50, 17);
+            this.radioButtonFalse.TabIndex = 2;
+            this.radioButtonFalse.TabStop = true;
+            this.radioButtonFalse.Text = "False";
+            this.radioButtonFalse.UseVisualStyleBackColor = true;
             // 
             // BooleanInspector
             // 
@@ -113,8 +113,8 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton saveBtn;
-        private System.Windows.Forms.RadioButton trueBtn;
+        private System.Windows.Forms.RadioButton radioButtonTrue;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButtonFalse;
     }
 }
