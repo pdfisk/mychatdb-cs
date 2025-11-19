@@ -7,6 +7,9 @@ namespace MyChatDB.src.windows.inspectors
         public TextInspector(string text)
         {
             InitializeComponent();
+            textBox.Text = text;
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = 0;
         }
     }
 }
