@@ -15,7 +15,7 @@ namespace MyChatDB.iron_python.engine
 {
     public class Engine
     {
-        static Engine Instance=null;
+        static Engine Instance = null;
         IResultHandler _resultHandler;
         private bool _running = false;
         private readonly ScriptEngine _engine;
@@ -33,7 +33,7 @@ namespace MyChatDB.iron_python.engine
             {
                 Instance = new Engine();
                 Instance._resultHandler = TranscriptWindow.GetInstance(Instance);
-                Instance.LoadScript("inspect");
+                Instance.LoadScript("services");
             }
             return Instance;
         }
@@ -127,11 +127,12 @@ namespace MyChatDB.iron_python.engine
         public async void RunScript(string code, IResultHandler resultHandler = null)
         {
             if (_running) return;
+            Func<string, string, string> gui_service = (method, args) => { return GuiService.Perform(method, args); };
+            Func<string, string, string> parser_service = (method, args) => { return ParserService.Perform(method, args); };
             _running = true;
             _globalAccessor.SetGlobal(SharedConstants.SHARED_GLOBALS, _sharedGlobalsDictionary);
-            Func<string, string, string> gui_service = (method, args) => { return GuiService.Perform(method, args); };
             _globalAccessor.SetGlobal(SharedConstants.GUI_SERVICE, gui_service);
-            _globalAccessor.SetGlobal(SharedConstants.PARSER_SERVICE, ParserService.getInstance());
+            _globalAccessor.SetGlobal(SharedConstants.PARSER_SERVICE, parser_service);
             Task<(object result, string stdout, string stderr)> task = ExecuteAsync(code);
             await task;
             _running = false;
@@ -170,7 +171,7 @@ namespace MyChatDB.iron_python.engine
            }, cancellationToken);
         }
 
-        public Dictionary<string,object> GetVariables()
+        public Dictionary<string, object> GetVariables()
         {
             var dict = new Dictionary<string, object>();
             var enumerator = _scope.GetVariableNames().GetEnumerator();

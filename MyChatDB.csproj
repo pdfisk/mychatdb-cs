@@ -894,7 +894,7 @@
     <Content Include="lib\_weakrefset.py" />
     <Content Include="lib\__future__.py" />
     <Content Include="lib\__phello__.foo.py" />
-    <Content Include="scripts\inspect.py">
+    <Content Include="scripts\services.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
