@@ -214,6 +214,31 @@
     <EmbeddedResource Include="src\windows\transcript\TranscriptWindow.resx">
       <DependentUpon>TranscriptWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="cobol\cbl\ADDAMT.cobol" />
+    <None Include="cobol\cbl\CBL0001.cobol" />
+    <None Include="cobol\cbl\CBL0002.cobol" />
+    <None Include="cobol\cbl\CBL0004.cobol" />
+    <None Include="cobol\cbl\CBL0005.cobol" />
+    <None Include="cobol\cbl\CBL0006.cobol" />
+    <None Include="cobol\cbl\CBL0007.cobol" />
+    <None Include="cobol\cbl\CBL0008.cobol" />
+    <None Include="cobol\cbl\CBL0009.cobol" />
+    <None Include="cobol\cbl\CBL0010.cobol" />
+    <None Include="cobol\cbl\CBL0011.cobol" />
+    <None Include="cobol\cbl\CBL0012.cobol" />
+    <None Include="cobol\cbl\CBL0013.cobol" />
+    <None Include="cobol\cbl\CBL0014.cobol" />
+    <None Include="cobol\cbl\CBL0033.cobol" />
+    <None Include="cobol\cbl\CBL006A.cobol" />
+    <None Include="cobol\cbl\CBLC1.cobol" />
+    <None Include="cobol\cbl\COBOL.cobol" />
+    <None Include="cobol\cbl\HELLO.cobol" />
+    <None Include="cobol\cbl\PAYROL00.cobol" />
+    <None Include="cobol\cbl\PAYROL0X.cobol" />
+    <None Include="cobol\cbl\SRCHBIN.cobol" />
+    <None Include="cobol\cbl\SRCHSER.cobol" />
+    <None Include="cobol\data\data" />
+    <None Include="cobol\data\xdata" />
     <None Include="lib\ctypes\macholib\fetch_macholib" />
     <None Include="lib\ctypes\macholib\fetch_macholib.bat" />
     <None Include="lib\ctypes\macholib\README.ctypes" />
@@ -869,7 +894,7 @@
     <Content Include="lib\_weakrefset.py" />
     <Content Include="lib\__future__.py" />
     <Content Include="lib\__phello__.foo.py" />
-    <Content Include="src\scripts\init.py">
+    <Content Include="scripts\inspect.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
